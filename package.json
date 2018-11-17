@@ -1,0 +1,36 @@
+{
+  "name": "express-vue-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*' server.js\" \"yarn client\"",
+    "client": "cd client && yarn build:dev",
+    "install": "cd client && yarn install",
+    "build": "cd client && yarn build",
+    "heroku-postbuild": "yarn build",
+    "lint": "eslint \"**/*.js\" --quiet && cd client && yarn lint",
+    "fix": "eslint \"**/*.js\" --fix .",
+    "test": "yarn lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "if-env": "^1.0.4",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.41.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "concurrently": "^4.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-google": "^0.11.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6"
+  }
+}
