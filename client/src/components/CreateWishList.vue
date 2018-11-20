@@ -1,66 +1,38 @@
 <template>
   <v-layout>
     <v-flex xs4>
-      <panel title="Song Metadata">
+      <panel title="Wish List Metadata">
           <v-text-field
           label="Title"
           required
           :rules="[required]"
-          v-model="song.title"
+          v-model="wishlist.title"
         ></v-text-field>
 
           <v-text-field
-          label="Artist"
+          label="Brand"
           required
           :rules=[required]
-          v-model="song.artist"
+          v-model="wishlist.brand"
         ></v-text-field>
 
           <v-text-field
-          label="Genre"
+          label="Price"
           required
           :rules=[required]
-          v-model="song.genre"
+          v-model="wishlist.price"
         ></v-text-field>
 
-          <v-text-field
-          label="Album"
-          required
-          :rules=[required]
-          v-model="song.album"
-        ></v-text-field>
-
-          <v-text-field
-          label="Album Image URL"
-          required
-          :rules=[required]
-          v-model="song.albumImageUrl"
-        ></v-text-field>
-
-          <v-text-field
-          label="Youtube ID"
-          required
-          :rules=[required]
-          v-model="song.youtubeId"
-        ></v-text-field>
       </panel>
     </v-flex>
     <v-flex xs8>
-      <panel title="Song Structure" class="ml-2">
+      <panel>
         <v-text-field
-          label="Tab"
+          label="Note to Friends"
           mlti-line
           required
           :rules=[required]
-          v-model="song.tab"
-        ></v-text-field>
-
-        <v-text-field
-          label="Lyrics"
-          mlti-line
-          required
-          :rules=[required]
-          v-model="song.lyrics"
+          v-model="wishlist.note"
         ></v-text-field>
       </panel>
       <span class="error"
@@ -82,7 +54,8 @@ export default {
       wishlist: {
         title: null,
         brand: null,
-        price: null
+        price: null,
+        note: null
       },
       error: null,
       required: (value) => !!value || 'Required.'
