@@ -1,13 +1,12 @@
 module.exports = {
     port: process.env.PORT || 8081,
     db: {
-      database: process.env.DB_NAME || 'tabtracker',
+      database: process.env.DB_NAME || 'christmaswishlist',
       user: process.env.DB_USER || 'root',
       password: process.env.DB_PASS || 'mySuperSecretPassword',
       options: {
-        dialect: process.env.DIALECT || 'sqlite',
-        host: process.env.HOST || 'localhost',
-        stroage: './tabtracker.sqlite'
+        dialect: process.env.DIALECT || 'mysql',
+        host: process.env.HOST || 'localhost'
       }
     },
     authentication: {
