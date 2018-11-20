@@ -11,9 +11,9 @@ module.exports = (app) => {
   app.post('/login',
     AuthenticationController.login)
 
-  app.get('/songs',
+  app.get('/wishlists',
     WishListsController.index)
 
-  app.post('/songs',
-  WishListsController.post)
+  app.post('/wishlists',
+    WishListsController.post)
 }

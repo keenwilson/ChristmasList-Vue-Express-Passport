@@ -10,7 +10,7 @@ module.exports = {
       res.send(wishlists)
     } catch (err) {
         res.status(500).send({
-          error: 'An error has occured trying to fetch the wishlists'
+          error: 'An error has occured trying to fetch the songs'
         })
     }
   },

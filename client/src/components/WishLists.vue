@@ -44,8 +44,8 @@ export default {
   },
   async mounted () {
     // Do a request to the backend for all the songs
-    this.songs = (await SongsService.index()).data
-    console.log('songs', this.songs)
+    this.songs = (await WishListsService.index()).data
+    console.log('wishlists', this.songs)
   }
 }
 </script>

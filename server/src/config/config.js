@@ -1,19 +1,17 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const morgan = require('morgan')
-const { sequelize } = require('./models')
-const config = require('./config/config')
-
-const app = express()
-app.use(morgan('combined'))
-app.use(bodyParser.json())
-app.use(cors())
-
-require('./routes')(app)
-
-sequelize.sync()
-  .then(() => {
-    app.listen(config.port)
-    console.log(`Server started on port ${config.port}`)
-  })
+module.exports = {
+    port: process.env.PORT || 8081,
+    db: {
+      database: process.env.DB_NAME || 'tabtracker',
+      user: process.env.DB_USER || 'root',
+      password: process.env.DB_PASS || 'mySuperSecretPassword',
+      options: {
+        dialect: process.env.DIALECT || 'sqlite',
+        host: process.env.HOST || 'localhost',
+        stroage: './tabtracker.sqlite'
+      }
+    },
+    authentication: {
+      jwtSecret: process.env.JWT_SECRET || 'secret'
+    }
+  }
+  

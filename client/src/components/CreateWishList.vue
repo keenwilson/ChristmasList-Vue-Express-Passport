@@ -74,7 +74,7 @@
 
 <script>
 import Panel from '@/components/Panel'
-import SongsService from '@/services/SongsService'
+import WishListsService from '@/services/WishListsService'
 
 export default {
   data () {
@@ -82,7 +82,7 @@ export default {
       wishlist: {
         title: null,
         brand: null,
-        price: null,
+        price: null
       },
       error: null,
       required: (value) => !!value || 'Required.'
@@ -97,13 +97,13 @@ export default {
       this.error = null
       // Loop all over the keys of my wish list
       // and verify every single values of that key is defined
-      const areAllFieldsFilledIn = Object
+      /* const areAllFieldsFilledIn = Object
         .keys(this.wishlist)
         .every(key => !!wishlist[key])
       if (!areAllFieldsFilledIn) {
         this.error = 'Please fill in all the require fields.'
         return
-      }
+      } */
 
       try {
         await WishListsService.post(this.wishlist)
