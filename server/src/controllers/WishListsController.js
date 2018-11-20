@@ -1,7 +1,7 @@
 const { WishList } = require('../models')
 
 module.exports = {
-  // Find all songs in the dayabase
+  // Find all wish lists in the dayabase
   async index (req, res) {
     try {
       const wishlists = await WishList.findAll({
@@ -10,7 +10,7 @@ module.exports = {
       res.send(wishlists)
     } catch (err) {
         res.status(500).send({
-          error: 'An error has occured trying to fetch the songs'
+          error: 'An error has occured trying to fetch the wish lists'
         })
     }
   },
@@ -21,7 +21,7 @@ module.exports = {
       res.send(wishlist)
     } catch (err) {
         res.status(500).send({
-          error: 'An error has occured trying to create the wishlist'
+          error: 'An error has occured trying to create the wish list'
         })
     }
   }
