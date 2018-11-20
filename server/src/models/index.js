@@ -22,7 +22,7 @@ const sequelize = new Sequelize(
 fs
   .readdirSync(__dirname)
   .filter((file) => {
-    return (file.indexOf('.') !== 0) && (file !== "index.js") && (file.slice(-3) === '.js');
+    return (file.indexOf('.') !== 0) && (file !== 'index.js') && (file.slice(-3) === '.js')
   /* file !== 'index.js' */
   })
   .forEach((file) => {
@@ -31,7 +31,7 @@ fs
     db[model.name] = model
   })
 
-  db.sequelize = sequelize
-  db.Sequelize = Sequelize
+db.sequelize = sequelize
+db.Sequelize = Sequelize
 
 module.exports = db
