@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     itemName: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     productUrl: DataTypes.STRING,
-    price: DataTypes.STRING,
+    price: DataTypes.STRING
   })
 
   return WishList
