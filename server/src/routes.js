@@ -2,6 +2,7 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const WishListsController = require('./controllers/WishListsController')
+const UserController = require('./controllers/UserController')
 
 module.exports = (app) => {
   app.post('/register',
@@ -16,4 +17,7 @@ module.exports = (app) => {
 
   app.post('/wishlists',
     WishListsController.post)
+
+  app.get('/user/:user',
+    UserController.userWishList)
 }

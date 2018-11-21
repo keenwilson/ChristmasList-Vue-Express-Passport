@@ -3,8 +3,17 @@ module.exports = (sequelize, DataTypes) => {
     itemName: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     productUrl: DataTypes.STRING,
-    price: DataTypes.STRING
+    price: DataTypes.STRING,
+    itemId: DataTypes.STRING
   })
+
+  WishList.associate = function (models) {
+    WishList.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
 
   return WishList
 }
