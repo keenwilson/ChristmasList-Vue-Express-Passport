@@ -2,6 +2,7 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const WishListsController = require('./controllers/WishListsController')
+const WalmartController = require('./controllers/Walmart_Controller')
 
 module.exports = (app) => {
   app.post('/register',
@@ -16,4 +17,7 @@ module.exports = (app) => {
 
   app.post('/wishlists',
     WishListsController.post)
+
+    app.post("/api/walmart/:search",
+    WalmartController.search)
 }
