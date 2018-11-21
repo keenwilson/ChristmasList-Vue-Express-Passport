@@ -1,6 +1,5 @@
 
 const config = require('../config/config.js')
-var itemArr = []
 var axios = require('axios')
 module.exports = {
   search(req, res) {
