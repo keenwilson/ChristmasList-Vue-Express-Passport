@@ -17,6 +17,7 @@ module.exports = {
   // A post method to create song
   async post (req, res) {
     try {
+      console.log(req.body)
       const wishlist = await WishList.create(req.body)
       res.send(wishlist)
     } catch (err) {

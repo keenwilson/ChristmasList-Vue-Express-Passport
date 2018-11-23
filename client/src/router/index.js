@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import WishLists from '@/components/WishLists'
 import CreateWishList from '@/components/CreateWishList'
+import EditProfile from '@/components/EditProfile'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/wishlists/create',
       name: 'wishlists-create',
       component: CreateWishList
+    },
+    {
+      path: '/profile/edit',
+      name: 'profile-edit',
+      component: EditProfile
     }
   ]
 })

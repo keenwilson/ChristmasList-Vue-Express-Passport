@@ -1,9 +1,19 @@
 module.exports = (sequelize, DataTypes) => {
   const WishList = sequelize.define('WishList', {
-    title: DataTypes.STRING,
-    brand: DataTypes.STRING,
-    price: DataTypes.STRING
+    itemName: DataTypes.STRING,
+    imageUrl: DataTypes.STRING,
+    productUrl: DataTypes.STRING,
+    price: DataTypes.STRING,
+    itemId: DataTypes.STRING
   })
+
+  WishList.associate = function (models) {
+    WishList.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
 
   return WishList
 }
