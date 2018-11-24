@@ -24,7 +24,7 @@ module.exports = (app) => {
 
   app.get('/api/walmart/:id',
     WalmartController.update)
-
+  
   app.get('/user/:user',
     UserController.userWishList)
 }
