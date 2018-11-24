@@ -34,12 +34,11 @@
         @click="navigateTo({name: 'register'})">
         Sign Up
       </v-btn>
-
+     <!-- Will add when login works v-if="!$store.state.isUserLoggedIn" -->
       <v-btn
-        v-if="$store.state.isUserLoggedIn"
         flat
         dark
-        @click="navigateTo({name: 'profile/edit'})">
+        @click="navigateTo({path: '/profile/edit'})">
         Edit Profile
       </v-btn>
 
