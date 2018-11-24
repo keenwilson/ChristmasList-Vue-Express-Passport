@@ -19,8 +19,9 @@ module.exports = (app) => {
   app.post('/wishlists',
     WishListsController.post)
 
-    app.post("/api/walmart/:search",
+  app.post('/api/walmart/:search',
     WalmartController.search)
+
   app.get('/user/:user',
     UserController.userWishList)
 }
