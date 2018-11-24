@@ -10,6 +10,8 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
+app.use(express.static('../client/dist'))
+
 require('./routes')(app)
 
 sequelize.sync({ force: true })
