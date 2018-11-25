@@ -12,6 +12,6 @@ module.exports = {
   },
   authentication: {
     jwtSecret: process.env.JWT_SECRET || 'secret',
-    walmartApi:process.env.WALMART_APIKEY
+    walmartApi: process.env.WALMART_APIKEY
   }
 }

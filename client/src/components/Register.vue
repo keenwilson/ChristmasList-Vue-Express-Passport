@@ -6,6 +6,10 @@
           name="tab-tracker-form"
           autocomplete="off">
         <v-text-field
+          label="Username"
+          v-model="userName"
+        ></v-text-field>
+        <v-text-field
           label="Email"
           v-model="email"
         ></v-text-field>
@@ -31,6 +35,7 @@ import Panel from '@/components/Panel'
 export default {
   data () {
     return {
+      userName: '',
       email: '',
       password: '',
       error: null
@@ -40,12 +45,14 @@ export default {
     async register () {
       try {
         const response = await AuthenticationService.register({
+          userName: this.userName,
           email: this.email,
           password: this.password
         })
         // setToken and setUser based on whatever return from the register endpoint
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({name: 'root'})
       } catch (error) {
         this.error = error.response.data.error
       }

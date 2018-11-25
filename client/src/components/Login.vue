@@ -43,6 +43,7 @@ export default {
         // setToken and setUser based on whatever return from the login endpoint
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({name: 'root'})
       } catch (error) {
         this.error = error.response.data.error
       }
