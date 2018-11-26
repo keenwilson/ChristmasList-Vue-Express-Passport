@@ -5,7 +5,13 @@ export default {
   index () {
     return Api().get('wishlists')
   },
+  show (wishlistId) {
+    return Api().get(`wishlists/${wishlistId}`)
+  },
   post (wishlist) {
     return Api().post('wishlists', wishlist)
+  },
+  put (wishlist) {
+    return Api().put(`wishlists/${wishlist.id}`, wishlist)
   }
 }

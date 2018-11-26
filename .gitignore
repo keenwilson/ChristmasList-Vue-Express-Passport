@@ -7,3 +7,9 @@ server/.env
 */.env
 *.env
 /server/.env
+
+.DS_Store
+node_modules/
+*.orig
+.idea/
+.vscode/

@@ -1,0 +1,130 @@
+<template>
+  <panel title="Item Metadata">
+    <v-layout>
+      <v-flex xs6>
+        <img class="product-image" :src="wishlist.imageUrl" />
+      </v-flex>
+      <v-flex xs6>
+        <div class="product-itemname">
+          {{ wishlist.itemName }}
+        </div>
+        <div product="product-price">
+          {{ wishlist.price }}
+        </div>
+        <div class="product-url">
+          {{ wishlist.productUrl}}
+        </div>
+        <v-btn
+          v-if="isUserLoggedIn && !bookmark"
+          dark
+          class="primary"
+          @click="setAsBookmark">
+          Add to Christmas List
+        </v-btn>
+        <v-btn
+          v-if="isUserLoggedIn && bookmark"
+          dark
+          class="primary"
+          @click="unsetAsBookmark">
+          Remove From Christmas List
+        </v-btn>
+      </v-flex>
+    </v-layout>
+  </panel>
+</template>
+
+<script>
+import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
+
+export default {
+  props: [
+    'wishlist'
+  ],
+  data () {
+    return {
+      // Set bookmark key to keep track of bookmark return from the back end
+      bookmark: null
+    }
+  },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
+  },
+  watch: {
+    async wishlist () {
+      if (!this.isUserLoggedIn) {
+        return
+      }
+
+      try {
+        console.log('check bookmark for wishlist.id', this.wishlist.id)
+        const bookmarks = (await BookmarksService.index({
+          wishlistId: this.wishlist.id
+        })).data
+        if (bookmarks.length) {
+          this.bookmark = bookmarks[0]
+          console.log('this.bookmark', this.bookmark)
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  },
+  methods: {
+    async setAsBookmark () {
+      console.log(`create bookmark userId:${this.$store.state.user.id} and itemId: ${this.wishlist.id}`)
+      try {
+        // Set this.bookmark to whatever the back end returns
+        this.bookmark = (await BookmarksService.post({
+          wishlistId: this.wishlist.id
+        })).data
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async unsetAsBookmark () {
+      try {
+        await BookmarksService.delete(this.bookmark.bookmarkId)
+        this.bookmark = null
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+.product {
+  padding: 20px;
+  height: 330px;
+  overflow: hidden;
+}
+.product-itemname {
+  font-size: 30px;
+}
+.product-price {
+ font-size: 24px;
+}
+.product-url {
+  font-size: 18px;
+}
+.product-image {
+  width: 70%;
+  margin: 0 auto;
+}
+textarea {
+  width: 100%;
+  font-family: monospace;
+  border: none;
+  height: 600px;
+  border-style: none;
+  border-color: transparent;
+  overflow: auto;
+  padding: 40px;
+}
+</style>
