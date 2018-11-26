@@ -5,9 +5,9 @@
         class="home"
         tag="span"
         :to="{
-          name: 'wishlists'
+          name: 'root'
         }">
-        Christmas list
+        Christmas List
       </router-link>
     </v-toolbar-title>
 
@@ -54,7 +54,6 @@
         }">
         Edit Profile
       </v-btn>
-
       <v-btn
         v-if="$store.state.isUserLoggedIn"
         flat

@@ -1,35 +1,46 @@
 <template>
-  <panel title="Item Metadata">
-    <v-layout>
-      <v-flex xs6>
-        <img class="product-image" :src="wishlist.imageUrl" />
+  <panel title="Product Info">
+    <v-card flat>
+      <v-layout>
+      <v-flex xs4>
+          <v-img
+            :src="wishlist.imageUrl"
+            aspect-ratio="1"
+          ></v-img>
       </v-flex>
-      <v-flex xs6>
-        <div class="product-itemname">
-          {{ wishlist.itemName }}
-        </div>
-        <div product="product-price">
-          {{ wishlist.price }}
-        </div>
-        <div class="product-url">
-          {{ wishlist.productUrl}}
-        </div>
-        <v-btn
-          v-if="isUserLoggedIn && !bookmark"
-          dark
-          class="primary"
-          @click="setAsBookmark">
-          Add to Christmas List
-        </v-btn>
-        <v-btn
-          v-if="isUserLoggedIn && bookmark"
-          dark
-          class="primary"
-          @click="unsetAsBookmark">
-          Remove From Christmas List
-        </v-btn>
+      <v-flex xs8>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline mb-0"> {{ wishlist.itemName }}</h3>
+              <h3 class="headline mb-0"> ${{ wishlist.price }}</h3>
+              <v-btn flat color="primary"
+              v-bind:href="wishlist.productUrl"
+              target="_blank">
+              Visit Product Page
+            </v-btn>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              v-if="isUserLoggedIn && !bookmark"
+              dark
+              class="primary"
+              @click="setAsBookmark">
+              Add to List
+            </v-btn>
+            <v-btn
+              v-if="isUserLoggedIn && bookmark"
+              dark
+              class="primary"
+              @click="unsetAsBookmark">
+              Remove from List
+            </v-btn>
+             <v-spacer></v-spacer>
+        </v-card-actions>
       </v-flex>
     </v-layout>
+    </v-card>
   </panel>
 </template>
 

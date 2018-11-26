@@ -3,33 +3,37 @@
     <div
       class="product"
       v-for="wishlist in wishlists" :key="wishlist.id">
+      <v-card>
       <v-layout>
-        <v-flex xs6>
-          <img class="product-image" :src="wishlist.imageUrl" />
-        </v-flex>
-        <v-flex xs6>
-          <div class="product-itemname">
-            {{ wishlist.itemName }}
-          </div>
-          <div class="product-price">
-            ${{ wishlist.price }}
-          </div>
-          <div class="product-url">
-            {{ wishlist.productUrl}}
-          </div>
-          <v-btn
-            dark
-            class="primary"
-            :to="{
+      <v-flex xs4>
+          <v-img
+            :src="wishlist.imageUrl"
+            aspect-ratio="1"
+          ></v-img>
+      </v-flex>
+      <v-flex xs8>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline mb-0"> {{ wishlist.itemName }}</h3>
+              <h3 class="headline mb-0"> ${{ wishlist.price }}</h3>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn flat color="primary"
+              :to="{
               name: 'wishlist',
               params: {
                 wishlistId: wishlist.id
               }
             }">
-            View
-          </v-btn>
+              View
+            </v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
         </v-flex>
       </v-layout>
+      </v-card>
     </div>
   </panel>
 </template>
@@ -40,7 +44,9 @@ import WishListsService from '@/services/WishListsService'
 export default {
   data () {
     return {
-      wishlists: null
+      wishlists: null,
+      query: '',
+      data: []
     }
   },
   watch: {
