@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon src/app.js --exec  \"npm run lint && node\"",
     "lint": "eslint src/**/*.js",
-    "lint:fix": "eslint src/**/*.js  --fix"
+    "lint:fix": "eslint src/**/*.js  --fix",
+    "seed": "node ./seed"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,8 @@
     "morgan": "^1.9.1",
     "mysql2": "^1.6.4",
     "nodemon": "^1.18.6",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "sequelize": "^4.41.2",
     "sqlite3": "^4.0.4",
     "vuetify": "^1.3.8"

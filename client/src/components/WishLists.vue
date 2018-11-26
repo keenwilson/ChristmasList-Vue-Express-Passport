@@ -5,7 +5,7 @@
         <v-btn
         slot="action"
         @click="navigateTo({name: 'wishlists-create'})"
-        class="cyan accent-2"
+        class="primary accent-2"
         light
         medium
         absolute
@@ -16,7 +16,7 @@
         </v-btn>
         <div
           v-for="wishlist in wishlists" :key="wishlist.id">
-          {{ wishlist.title }}
+          {{ wishlist.itemName }}
           {{ wishlist.brand }}
           {{ wishlist.price}}
         </div>
@@ -27,11 +27,8 @@
 
 <script>
 import WishListsService from '@/services/WishListsService'
-import Panel from '@/components/Panel'
+
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       wishlists: null

@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Welcome from '@/components/Welcome'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
-import WishLists from '@/components/WishLists'
+import WishLists from '@/components/WishListItems/Index'
+import ViewItem from '@/components/ViewItem/Index'
 import CreateWishList from '@/components/CreateWishList'
 import EditProfile from '@/components/EditProfile'
 
@@ -14,7 +15,7 @@ export default new Router({
     {
       path: '/',
       name: 'root',
-      component: Hello
+      component: Welcome
     },
     {
       path: '/register',
@@ -37,9 +38,18 @@ export default new Router({
       component: CreateWishList
     },
     {
+      path: '/wishlists/:wishlistId',
+      name: 'wishlist',
+      component: ViewItem
+    },
+    {
       path: '/profile/edit',
-      name: 'profile-edit',
+      name: 'profile',
       component: EditProfile
+    },
+    {
+      path: '*',
+      redirect: 'wishlists'
     }
   ]
 })
