@@ -14,6 +14,13 @@ module.exports = {
 
     if (error) {
       switch (error.details[0].context.key) {
+        case 'userName': 
+          res.status(400).send({
+            error: `Username must be at least 3 characters in length and not greater than 30 characters in length.
+            <br>
+            Username must contain only letters and numbers. No special characters.`
+          })
+          break
         case 'email':
           res.status(400).send({
             error: 'You must provide a valid email address.'

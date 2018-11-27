@@ -31,12 +31,10 @@ module.exports = {
   async login (req, res) {
     try {
       // Grab email and password from req.body
-      const { email, password } = req.body
+      const { userCreds, password } = req.body
       // Find a user using an email
-      const user = await User.findOne({
-        where: {
-          email: email
-        }
+      const user = await User.find({
+        where: Sequelize.or({ username: userCreds }, { email: userCreds })
       })
 
       // If the login user doesn't have that email, return an error
