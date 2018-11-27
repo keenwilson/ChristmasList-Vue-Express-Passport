@@ -1,6 +1,7 @@
 const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+const Sequelize = require('sequelize')
 
 // The jwtSignUser method is used for generating a jwt token
 function jwtSignUser (user) {
