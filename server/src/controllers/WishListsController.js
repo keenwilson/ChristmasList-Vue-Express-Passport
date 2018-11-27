@@ -5,12 +5,12 @@ module.exports = {
   async index (req, res) {
     try {
       // Set products to null so that we can assign it based on which path we take
-      let products = null
+      let wishlists = null
       const search = req.query.search
       // Check if search is set in a query string, do the search
       if (search) {
-        // Find all the products which matches any of these cases
-        products = await WishList.findAll({
+        // Find all the wishlist products which matches any of these cases
+        wishlists = await WishList.findAll({
           where: {
             $or: [
               'itemName', 'price'
@@ -24,14 +24,14 @@ module.exports = {
           }
         })
       } else {
-        products = await WishList.findAll({
+        wishlists = await WishList.findAll({
           limit: 10
         })
       }
-      res.send(products)
+      res.send(wishlists)
     } catch (err) {
       res.status(500).send({
-        error: 'An error has occured trying to fetch the products'
+        error: 'An error has occured trying to fetch the wishlist products'
       })
     }
   },
