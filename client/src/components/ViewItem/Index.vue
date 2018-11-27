@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-layout>
+    <v-layout class="pa-4">
       <v-flex xs8 offset-xs2>
         <item-metadata :wishlist="wishlist"/>
       </v-flex>

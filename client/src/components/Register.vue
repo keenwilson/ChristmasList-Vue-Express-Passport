@@ -1,31 +1,35 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <panel title="Register">
-        <form
-          name="christmas-list-form"
-          autocomplete="off">
-        <v-text-field
-          label="Username"
-          v-model="userName"
-        ></v-text-field>
-        <v-text-field
-          label="Email"
-          v-model="email"
-        ></v-text-field>
-        <v-text-field
-          label="Password"
-          type="password"
-          v-model="password"
-          auto-complete="new-password"
-        ></v-text-field>
-        </form>
-        <br>
-        <div class="danger-alert" v-html="error" />
-        <v-btn class="primary" @click="register" dark>Register</v-btn>
-      </panel>
-    </v-flex>
-  </v-layout>
+  <div>
+    <v-parallax src="static/white-bg-berries.jpg" height="700">
+      <v-layout class="pt-5">
+        <v-flex xs6 offset-xs3>
+          <panel title="Register">
+            <form
+              name="christmas-list-form"
+              autocomplete="off">
+            <v-text-field
+              label="Username"
+              v-model="userName"
+            ></v-text-field>
+            <v-text-field
+              label="Email"
+              v-model="email"
+            ></v-text-field>
+            <v-text-field
+              label="Password"
+              type="password"
+              v-model="password"
+              auto-complete="new-password"
+            ></v-text-field>
+            </form>
+            <br>
+            <div class="danger-alert" v-html="error" />
+            <v-btn class="primary" @click="register" dark>Register</v-btn>
+          </panel>
+        </v-flex>
+      </v-layout>
+    </v-parallax>
+  </div>
 </template>
 
 <script>
