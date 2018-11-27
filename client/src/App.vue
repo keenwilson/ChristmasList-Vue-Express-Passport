@@ -7,28 +7,48 @@
           <router-view/>
         </v-content>
       </main>
+      <page-footer />
     </v-app>
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/Header.vue'
+import PageFooter from '@/components/Footer.vue'
 
 export default {
   name: 'app',
   components: {
-    PageHeader
+    PageHeader,
+    PageFooter
   }
 }
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #434434;
   margin-top: 60px;
+}
+
+.font-Montserrat-regular {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.font-Montserrat-semi-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.font-Montserrat-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 </style>

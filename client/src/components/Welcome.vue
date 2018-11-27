@@ -1,31 +1,133 @@
 <template>
-  <section>
-    <v-parallax src="static/train.jpg" height="600">
+  <div>
+    <section>
+      <v-parallax src="static/train.jpg" height="700">
+        <v-layout
+          column
+          align-center
+          justify-center
+          class="white--text"
+        >
+          <div class="plate">
+            <p class="script"><span>The Original</span></p>
+            <p class="shadow text1">CHRISTMAS</p>
+            <p class="shadow text3">LIST</p>
+            <p class="script"><span>by Group 5 Studio</span></p>
+          </div>
+          <v-btn
+            flat
+            v-if="!$store.state.isUserLoggedIn"
+            dark
+            :to="{
+            name: 'register'
+            }">
+            Get Started
+          </v-btn>
+          <v-btn
+            v-if="$store.state.isUserLoggedIn"
+            flat
+            dark
+            :to="{
+            name: 'wishlists'
+            }">
+            Create a List
+          </v-btn>
+        </v-layout>
+      </v-parallax>
+    <v-layout
+      column
+      wrap
+      class="my-5"
+      align-center
+    >
+      <v-flex xs12 sm4 class="my-3">
+        <div class="text-xs-center">
+          <h2 class="headline font-Montserrat-semi-bold">Tell the world what you want for Christmas</h2>
+          <span class="subheading">
+            Tell the world what you want for Christmas
+          </span>
+        </div>
+      </v-flex>
+      <v-flex xs12>
+        <v-container grid-list-xl>
+          <v-layout row wrap align-center>
+            <v-flex xs12 md4>
+              <v-card class="elevation-0 transparent">
+                <v-card-text class="text-xs-center">
+                  <v-icon x-large class="primary--text text--lighten-2">mdi-shopping</v-icon>
+                </v-card-text>
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline text-xs-center font-Montserrat-semi-bold">Create a List</div>
+                </v-card-title>
+                <v-card-text>
+                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-card class="elevation-0 transparent">
+                <v-card-text class="text-xs-center">
+                  <v-icon x-large class="primary--text text--lighten-2">mdi-message-text-outline</v-icon>
+                </v-card-text>
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline font-Montserrat-semi-bold">Tell a Friend</div>
+                </v-card-title>
+                <v-card-text>
+                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-card class="elevation-0 transparent">
+                <v-card-text class="text-xs-center">
+                  <v-icon x-large class="primary--text text--lighten-2">mdi-pine-tree</v-icon>
+                </v-card-text>
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline text-xs-center font-Montserrat-semi-bold">About the Spirit of Christmas</div>
+                </v-card-title>
+                <v-card-text>
+                  That's when the Spirit of Christmas smiled.
+                  "Remember, this all began with a child.
+                  Because it took nothing but love to begin it,
+                  it's not really Christmas if love isn't in it."
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-flex>
+    </v-layout>
+    <v-parallax src="static/snow-pine-berries.jpg" height="700">
       <v-layout
         column
         align-center
         justify-center
-        class="white--text"
+        class="primary--text font-Montserrat"
       >
-        <div class="plate">
-          <p class="script"><span>The Original</span></p>
-          <p class="shadow text1">CHRISTMAS</p>
-          <p class="shadow text3">LIST</p>
-          <p class="script"><span>by Group 5 Studio</span></p>
-        </div>
+        <img src="static/frame-xmas.jpg" alt="Christmas" height="200">
+        <h1 class="mt-2 primary--text mb-2 display-1 text-xs-center font-Montserrat-semi-bold">Happy Every Thing</h1>
+        <div class="subheading mb-3 text-xs-center">Creating a Christmas List has never been easier. Start your list today</div>
         <v-btn
+          color="primary"
           flat
           v-if="!$store.state.isUserLoggedIn"
           dark
+          large
           :to="{
           name: 'register'
           }">
           Get Started
         </v-btn>
         <v-btn
+          color="primary"
           v-if="$store.state.isUserLoggedIn"
           flat
           dark
+          large
           :to="{
           name: 'wishlists'
           }">
@@ -33,107 +135,8 @@
         </v-btn>
       </v-layout>
     </v-parallax>
-  <v-layout
-    column
-    wrap
-    class="my-5"
-    align-center
-  >
-    <v-flex xs12 sm4 class="my-3">
-      <div class="text-xs-center">
-        <h2 class="headline">Tell the world what you want for Christmas</h2>
-        <span class="subheading">
-          Tell the world what you want for Christmas
-        </span>
-      </div>
-    </v-flex>
-    <v-flex xs12>
-      <v-container grid-list-xl>
-        <v-layout row wrap align-center>
-          <v-flex xs12 md4>
-            <v-card class="elevation-0 transparent">
-              <v-card-text class="text-xs-center">
-                <v-icon x-large class="primary--text text--lighten-2">mdi-shopping</v-icon>
-              </v-card-text>
-              <v-card-title primary-title class="layout justify-center">
-                <div class="headline text-xs-center">Create a List</div>
-              </v-card-title>
-              <v-card-text>
-                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-              </v-card-text>
-            </v-card>
-          </v-flex>
-          <v-flex xs12 md4>
-            <v-card class="elevation-0 transparent">
-              <v-card-text class="text-xs-center">
-                <v-icon x-large class="primary--text text--lighten-2">mdi-message-text-outline</v-icon>
-              </v-card-text>
-              <v-card-title primary-title class="layout justify-center">
-                <div class="headline">Tell a Friend</div>
-              </v-card-title>
-              <v-card-text>
-                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-              </v-card-text>
-            </v-card>
-          </v-flex>
-          <v-flex xs12 md4>
-            <v-card class="elevation-0 transparent">
-              <v-card-text class="text-xs-center">
-                <v-icon x-large class="primary--text text--lighten-2">mdi-pine-tree</v-icon>
-              </v-card-text>
-              <v-card-title primary-title class="layout justify-center">
-                <div class="headline text-xs-center">About the Spirit of Christmas</div>
-              </v-card-title>
-              <v-card-text>
-                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-flex>
-  </v-layout>
-  <v-parallax src="static/christmas-on-snow.jpg" height="600">
-    <v-layout
-      column
-      align-center
-      justify-center
-      class="white--text"
-    >
-      <img src="static/diy-pine.jpg" alt="Christmas" height="200">
-      <h1 class="white--text mb-2 display-1 text-xs-center">Parallax Template</h1>
-      <div class="subheading mb-3 text-xs-center">Powered by Vuetify</div>
-      <v-btn
-        color="primary"
-        flat
-        v-if="!$store.state.isUserLoggedIn"
-        dark
-        large
-        :to="{
-        name: 'register'
-        }">
-        Get Started
-      </v-btn>
-      <v-btn
-        color="primary"
-        v-if="$store.state.isUserLoggedIn"
-        flat
-        dark
-        large
-        :to="{
-        name: 'wishlists'
-        }">
-        Create a List
-      </v-btn>
-    </v-layout>
-  </v-parallax>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -145,6 +148,12 @@ export default {
 <style>
 @import url(https://fonts.googleapis.com/css?family=Arvo:700);
 @import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+
+.font-Montserrat-semi-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
 body {
   background-color: #222;
 }

@@ -92,6 +92,9 @@ export default {
         this.bookmark = (await BookmarksService.post({
           wishlistId: this.wishlist.id
         })).data
+        this.$router.push({
+          name: 'wishlists'
+        })
       } catch (err) {
         console.log(err)
       }
@@ -100,6 +103,9 @@ export default {
       try {
         await BookmarksService.delete(this.bookmark.id)
         this.bookmark = null
+        this.$router.push({
+          name: 'wishlists'
+        })
       } catch (err) {
         console.log(err)
       }

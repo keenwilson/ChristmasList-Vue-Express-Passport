@@ -1,22 +1,26 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <panel title="Login">
-        <v-text-field
-          label="Username or Email"
-          v-model="userCreds"
-        ></v-text-field>
-        <v-text-field
-          label="Password"
-          type="password"
-          v-model="password"
-        ></v-text-field>
-        <br>
-        <div class="danger-alert" v-html="error" />
-        <v-btn class="primary" @click="login" dark>Login</v-btn>
-      </panel>
-    </v-flex>
-  </v-layout>
+  <div>
+    <v-parallax src="static/wreath.jpg" height="700">
+      <v-layout class="pt-5">
+        <v-flex xs6 offset-xs3>
+          <panel title="Login">
+            <v-text-field
+              label="Username or Email"
+              v-model="userCreds"
+            ></v-text-field>
+            <v-text-field
+              label="Password"
+              type="password"
+              v-model="password"
+            ></v-text-field>
+            <br>
+            <div class="danger-alert" v-html="error" />
+            <v-btn class="primary" @click="login" dark>Login</v-btn>
+          </panel>
+        </v-flex>
+      </v-layout>
+    </v-parallax>
+  </div>
 </template>
 
 <script>

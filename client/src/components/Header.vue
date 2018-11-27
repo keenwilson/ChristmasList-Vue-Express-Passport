@@ -1,8 +1,8 @@
 <template>
-  <v-toolbar fixed class="primary font-Montserrat" dark>
+  <v-toolbar fixed class="primary" dark>
     <v-toolbar-title class="mr-4">
       <router-link
-        class="home"
+        class="home font-Montserrat-bold"
         tag="span"
         :to="{
           name: 'root'
@@ -15,6 +15,7 @@
       <v-btn
         flat
         dark
+        class="font-Montserrat-semi-bold"
         :to="{
           name: 'wishlists'
         }">
@@ -29,6 +30,7 @@
         v-if="!$store.state.isUserLoggedIn"
         flat
         dark
+        class="font-Montserrat-semi-bold"
         :to="{
           name: 'login'
         }">
@@ -39,6 +41,7 @@
         v-if="!$store.state.isUserLoggedIn"
         flat
         dark
+        class="font-Montserrat-semi-bold"
         :to="{
           name: 'register'
         }">
@@ -49,6 +52,7 @@
         v-if="$store.state.isUserLoggedIn"
         flat
         dark
+        class="font-Montserrat-semi-bold"
         :to="{
           name: '/profile/edit'
         }">
@@ -58,6 +62,7 @@
         v-if="$store.state.isUserLoggedIn"
         flat
         dark
+        class="font-Montserrat-semi-bold"
         @click="logout">
         Log Out
       </v-btn>
@@ -81,11 +86,16 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600,700');
 
-.font-Montserrat {
+.font-Montserrat-semi-bold {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+}
+
+.font-Montserrat-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 .home {

@@ -1,7 +1,9 @@
 <template>
   <v-layout class="pa-4">
+    <v-spacer
+      v-if="!$store.state.isUserLoggedIn"></v-spacer>
     <v-flex :class="{
-        xs12: !isUserLoggedIn,
+        xs8: !isUserLoggedIn,
         xs8: isUserLoggedIn
       }" class="ml-2">
       <items-search-panel />
@@ -10,6 +12,8 @@
     <v-flex xs4 class="ml-2" v-if="isUserLoggedIn">
       <items-bookmarks />
     </v-flex>
+    <v-spacer
+      v-if="!$store.state.isUserLoggedIn"></v-spacer>
   </v-layout>
 </template>
 
