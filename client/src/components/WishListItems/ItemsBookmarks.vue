@@ -6,7 +6,7 @@
       :items="bookmarks">
       <template slot="items" slot-scope="props">
         <td class="text-xs-right">
-          {{props.item.itemName}}
+          <router-link :to='"/wishlists/" + props.item.WishListId'>{{props.item.itemName}}</router-link>
         </td>
         <td class="text-xs-right">
           ${{props.item.price}}
