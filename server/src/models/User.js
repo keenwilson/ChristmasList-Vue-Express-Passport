@@ -19,7 +19,7 @@ function hashPassword (user, options) {
 }
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    userName: {	
+    userName: {
       type: DataTypes.STRING,
       unique: true
     },
@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
     return bcrypt.compareAsync(password, this.password)
   }
 
-  User.associate = function (models) {	
-    User.hasMany(models.WishList, {})	
+  User.associate = function (models) {
+    User.hasMany(models.WishList, {})
   }
 
   return User

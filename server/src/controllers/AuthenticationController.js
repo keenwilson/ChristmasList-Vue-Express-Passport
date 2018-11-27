@@ -1,6 +1,7 @@
 const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+const Sequelize = require('sequelize')
 
 // The jwtSignUser method is used for generating a jwt token
 function jwtSignUser (user) {
@@ -39,7 +40,7 @@ module.exports = {
 
       // If the login user doesn't have that email, return an error
       if (!user) {
-        console.log('No email user')
+        console.log('No username or email user')
         return res.status(403).send({
           error: 'Tho login information was incorrect'
         })
