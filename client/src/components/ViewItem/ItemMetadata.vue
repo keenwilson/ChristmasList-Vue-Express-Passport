@@ -98,7 +98,7 @@ export default {
     },
     async unsetAsBookmark () {
       try {
-        await BookmarksService.delete(this.bookmark.bookmarkId)
+        await BookmarksService.delete(this.bookmark.id)
         this.bookmark = null
       } catch (err) {
         console.log(err)
