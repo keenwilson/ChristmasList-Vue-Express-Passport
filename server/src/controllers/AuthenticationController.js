@@ -1,6 +1,7 @@
 const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+const Sequelize = require('sequelize')
 
 // The jwtSignUser method is used for generating a jwt token
 function jwtSignUser (user) {
@@ -31,17 +32,15 @@ module.exports = {
   async login (req, res) {
     try {
       // Grab email and password from req.body
-      const { email, password } = req.body
+      const { userCreds, password } = req.body
       // Find a user using an email
-      const user = await User.findOne({
-        where: {
-          email: email
-        }
+      const user = await User.find({
+        where: Sequelize.or({ username: userCreds }, { email: userCreds })
       })
 
       // If the login user doesn't have that email, return an error
       if (!user) {
-        console.log('No email user')
+        console.log('No username or email user')
         return res.status(403).send({
           error: 'Tho login information was incorrect'
         })

@@ -11,8 +11,8 @@
           v-model="username"
         ></v-text-field>
            <br>
-           <div class="error" v-html="error" />
-        <v-btn class="cyan" @click="editProfile" dark>Update Profile</v-btn>
+           <div class="danger-alert" v-html="error" />
+        <v-btn class="primary" @click="editProfile" dark>Update Profile</v-btn>
       </panel>
     </v-flex>
     <v-flex xs8>
@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-
 export default {
   data () {
     return {
@@ -30,15 +28,12 @@ export default {
       username: '',
       error: null
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>
 
 <style scoped>
-.error {
-  color: red;
+.danger-alert {
+  color: #b71c1c;
 }
 </style>
