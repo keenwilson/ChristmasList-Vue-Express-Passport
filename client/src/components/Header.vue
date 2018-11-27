@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed class="primary" dark>
+  <v-toolbar fixed class="primary font-Montserrat" dark>
     <v-toolbar-title class="mr-4">
       <router-link
         class="home"
@@ -81,6 +81,13 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+.font-Montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
 .home {
   cursor: pointer;
 }

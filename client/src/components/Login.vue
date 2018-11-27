@@ -3,8 +3,8 @@
     <v-flex xs6 offset-xs3>
       <panel title="Login">
         <v-text-field
-          label="Email"
-          v-model="email"
+          label="Username or Email"
+          v-model="userCreds"
         ></v-text-field>
         <v-text-field
           label="Password"
@@ -25,7 +25,7 @@ import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
-      email: '',
+      userCreds: '',
       password: '',
       error: null
     }
@@ -36,7 +36,7 @@ export default {
         // Keep track of responses return from a server
         // Set token and user based on those responses
         const response = await AuthenticationService.login({
-          email: this.email,
+          userCreds: this.userCreds,
           password: this.password
         })
         // setToken and setUser based on whatever return from the login endpoint
