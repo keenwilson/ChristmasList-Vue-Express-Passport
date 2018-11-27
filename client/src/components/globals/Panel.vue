@@ -1,5 +1,5 @@
 <template>
-    <div class="white elevation-2">
+    <div class="white elevation-2 font-Montserrat">
         <v-toolbar flat dense class="primary" dark>
             <v-toolbar-title>{{ title }}</v-toolbar-title>
             <slot name=action>
@@ -22,4 +22,10 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+.font-Montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
 </style>

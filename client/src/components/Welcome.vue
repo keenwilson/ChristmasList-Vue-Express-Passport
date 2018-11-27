@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-parallax src="https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2560x1707/904da35679bae32f0064be7f44d60e75/photo-1505139229755-18651479b8be" height="600">
+    <v-parallax src="static/train.jpg" height="600">
       <v-layout
         column
         align-center
@@ -13,6 +13,24 @@
           <p class="shadow text3">LIST</p>
           <p class="script"><span>by Group 5 Studio</span></p>
         </div>
+        <v-btn
+          flat
+          v-if="!$store.state.isUserLoggedIn"
+          dark
+          :to="{
+          name: 'register'
+          }">
+          Get Started
+        </v-btn>
+        <v-btn
+          v-if="$store.state.isUserLoggedIn"
+          flat
+          dark
+          :to="{
+          name: 'wishlists'
+          }">
+          Create a List
+        </v-btn>
       </v-layout>
     </v-parallax>
   <v-layout
@@ -81,6 +99,40 @@
       </v-container>
     </v-flex>
   </v-layout>
+  <v-parallax src="static/christmas-on-snow.jpg" height="600">
+    <v-layout
+      column
+      align-center
+      justify-center
+      class="white--text"
+    >
+      <img src="static/diy-pine.jpg" alt="Christmas" height="200">
+      <h1 class="white--text mb-2 display-1 text-xs-center">Parallax Template</h1>
+      <div class="subheading mb-3 text-xs-center">Powered by Vuetify</div>
+      <v-btn
+        color="primary"
+        flat
+        v-if="!$store.state.isUserLoggedIn"
+        dark
+        large
+        :to="{
+        name: 'register'
+        }">
+        Get Started
+      </v-btn>
+      <v-btn
+        color="primary"
+        v-if="$store.state.isUserLoggedIn"
+        flat
+        dark
+        large
+        :to="{
+        name: 'wishlists'
+        }">
+        Create a List
+      </v-btn>
+    </v-layout>
+  </v-parallax>
   </section>
 </template>
 
