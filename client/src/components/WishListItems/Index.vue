@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout class="pa-4">
     <v-flex :class="{
         xs12: !isUserLoggedIn,
         xs8: isUserLoggedIn
