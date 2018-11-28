@@ -2,7 +2,7 @@
   <panel title="Items Avaiable to Add to Wish List">
     <div
       class="product"
-      v-for="wishlist in wishlists" :key="wishlist.id">
+      v-for="wishlist in wishlists" :key="wishlist.Id">
       <v-card>
       <v-layout>
       <v-flex xs4>
