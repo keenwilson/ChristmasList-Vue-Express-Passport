@@ -53,7 +53,7 @@ export default {
     '$route.query.search': {
       immediate: true,
       async handler (value) {
-        this.wishlists = (await WishListsService.index(value)).data
+        this.wishlists = (await WishListsService.query(value)).data
         console.log('search this wishlists', this.wishlists)
       }
     }

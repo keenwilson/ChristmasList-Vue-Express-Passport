@@ -29,7 +29,7 @@ module.exports = (app) => {
     WalmartController.search)
   app.get('/api/walmart/:id',
     WalmartController.update)
-  
+
   app.get('/user/:user',
     UserController.userWishList)
 
