@@ -13,5 +13,8 @@ export default {
   },
   put (wishlist) {
     return Api().put(`wishlists/${wishlist.id}`, wishlist)
+  },
+  query (value) {
+    return Api().post(`api/walmart/${value}`)
   }
 }
