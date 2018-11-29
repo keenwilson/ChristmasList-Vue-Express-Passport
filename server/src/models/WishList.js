@@ -7,13 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     itemId: DataTypes.STRING
   })
 
-  //  WishList.associate = function (models) {
-  //  WishList.belongsTo(models.User, {
-  //    foreignKey: {
-  //      allowNull: false
-  //    }
-  //  })
-  //  }
+  WishList.associate = function (models) {
+    WishList.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
 
   return WishList
 }
