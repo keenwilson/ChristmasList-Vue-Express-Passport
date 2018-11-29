@@ -2,32 +2,27 @@
   <panel title="Items Avaiable to Add to Wish List">
     <div
       class="product"
-      v-for="wishlist in wishlists" :key="wishlist.Id">
+      v-for="(wishlist, index) in wishlists" :key='index'>
       <v-card>
       <v-layout>
       <v-flex xs4>
           <v-img
-            :src="wishlist.imageUrl"
+            :src="wishlist.largeImage"
             aspect-ratio="1"
           ></v-img>
       </v-flex>
       <v-flex xs8>
           <v-card-title primary-title>
             <div>
-              <h3 class="headline mb-0"> {{ wishlist.itemName }}</h3>
-              <h3 class="headline mb-0"> ${{ wishlist.price }}</h3>
+              <h3 class="headline mb-0"> {{ wishlist.name }}</h3>
+              <h3 class="headline mb-0"> ${{ wishlist.salePrice }}</h3>
             </div>
           </v-card-title>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn flat color="primary"
-              :to="{
-              name: 'wishlist',
-              params: {
-                wishlistId: wishlist.id
-              }
-            }">
-              View
+              @click="sendToDB(index)">
+              Bookmark
             </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
@@ -39,6 +34,7 @@
 </template>
 
 <script>
+import WalmartApiService from '@/services/WalmartApiService'
 import WishListsService from '@/services/WishListsService'
 
 export default {
@@ -53,9 +49,24 @@ export default {
     '$route.query.search': {
       immediate: true,
       async handler (value) {
-        this.wishlists = (await WishListsService.query(value)).data
+        this.wishlists = (await WalmartApiService.query(value)).data
         console.log('search this wishlists', this.wishlists)
       }
+    }
+  },
+  methods: {
+    sendToDB (index) {
+      var item = {
+        itemName: this.wishlists[index].name,
+        imageUrl: this.wishlists[index].largeImage,
+        productUrl: this.wishlists[index].productUrl,
+        price: this.wishlists[index].salePrice,
+        itemId: this.wishlists[index].itemId,
+        userId: this.$store.state.user.id
+      }
+      console.log(item)
+      WishListsService.post(item)
+      console.log('search this wishlists', this.wishlists)
     }
   }
 }
