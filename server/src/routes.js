@@ -27,9 +27,9 @@ module.exports = (app) => {
 
   app.post('/api/walmart/:search',
     WalmartController.search)
-  app.get('/api/walmart/:id',
+  app.post('/api/walmart/:id',
     WalmartController.update)
-  
+
   app.get('/user/:user',
     UserController.userWishList)
 
