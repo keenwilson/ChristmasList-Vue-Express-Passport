@@ -5,19 +5,20 @@
 </template>
 
 <script>
+import Vue from 'vue'
 const search = new Vue({
-  el: "#search",
+  el: '#search',
   data: {
     results: []
   },
-  mounted() {
-    fetch("/walmart?search=query")
+  mounted () {
+    fetch('/walmart?search=query')
       .then(response => response.json())
       .then(data => {
-        this.search = data;
-      });
-  },
-});
+        this.search = data
+      })
+  }
+})
 // import _ from 'lodash'
 
 // export default {
