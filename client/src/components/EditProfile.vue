@@ -1,5 +1,5 @@
-<template>
-  <v-layout column>
+<!-- <template>
+  <v-layoutcolumn>
     <v-flex xs4 >
       <panel title="Edit Profile">
         <v-text-field

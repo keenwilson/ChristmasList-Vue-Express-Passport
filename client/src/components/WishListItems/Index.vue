@@ -1,20 +1,27 @@
 <template>
-  <v-layout class="pa-4">
-    <v-spacer
-      v-if="!$store.state.isUserLoggedIn"></v-spacer>
-    <v-flex :class="{
-        xs8: !isUserLoggedIn,
-        xs8: isUserLoggedIn
-      }" class="ml-2">
-      <items-search-panel />
-      <items-panel class="mt-2" />
-    </v-flex>
-    <v-flex xs4 class="ml-2" v-if="isUserLoggedIn">
-      <items-bookmarks />
-    </v-flex>
-    <v-spacer
-      v-if="!$store.state.isUserLoggedIn"></v-spacer>
-  </v-layout>
+  <div class="parallax">
+    <v-layout class="pa-4" style=" background-color: #303030">
+      <v-spacer
+        v-if="!$store.state.isUserLoggedIn"></v-spacer>
+      <v-flex :class="{
+          xs8: !isUserLoggedIn,
+          xs8: isUserLoggedIn
+        }" class="ml-2">
+        <items-search-panel />
+        <items-panel class="mt-2" />
+      </v-flex>
+      <v-flex xs4 class="ml-2" v-if="isUserLoggedIn">
+         <v-img
+            :src="image"
+            aspect-ratio="1"
+            class="mb-2"
+        ></v-img>
+        <items-bookmarks />
+      </v-flex>
+      <v-spacer
+        v-if="!$store.state.isUserLoggedIn"></v-spacer>
+    </v-layout>
+  </div>
 </template>
 
 <script>
@@ -38,7 +45,8 @@ export default {
   },
   data () {
     return {
-      wishlists: null
+      wishlists: null,
+      image: '/static/tree-skirt.jpg'
     }
   },
   async mounted () {
