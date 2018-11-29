@@ -8,8 +8,8 @@ export default {
   show (wishlistId) {
     return Api().get(`wishlists/${wishlistId}`)
   },
-  post (wishlist) {
-    return Api().post('wishlists', wishlist)
+  post (item) {
+    return Api().post('wishlists', item)
   },
   put (wishlist) {
     return Api().put(`wishlists/${wishlist.id}`, wishlist)
