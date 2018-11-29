@@ -48,9 +48,9 @@ module.exports = {
   // A post method to create wish list
   async post (req, res) {
     try {
-      console.log(req.body)
-      const product = await WishList.create(req.body)
-      res.send(product)
+      console.log('wishlist controller receive req.body', req.body)
+      const item = await WishList.create(req.body)
+      res.send(item)
     } catch (err) {
       res.status(500).send({
         error: 'An error has occured trying to create the wish list'

@@ -40,6 +40,9 @@ export default {
       bookmarks: []
     }
   },
+  props: [
+    'wishlist'
+  ],
   computed: {
     ...mapState([
       'isUserLoggedIn',

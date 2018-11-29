@@ -47,17 +47,6 @@
         }">
         Sign Up
       </v-btn>
-     <!-- Will add when login works v-if="!$store.state.isUserLoggedIn" -->
-      <v-btn
-        v-if="$store.state.isUserLoggedIn"
-        flat
-        dark
-        class="font-Montserrat-semi-bold"
-        :to="{
-          name: '/profile/edit'
-        }">
-        Edit Profile
-      </v-btn>
       <v-btn
         v-if="$store.state.isUserLoggedIn"
         flat

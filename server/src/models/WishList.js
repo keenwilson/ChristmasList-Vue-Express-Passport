@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: DataTypes.STRING,
     productUrl: DataTypes.TEXT,
     price: DataTypes.STRING,
-    itemId: DataTypes.STRING
+    itemId: DataTypes.STRING,
+    shortDescription: DataTypes.TEXT,
+    isBookmarked: DataTypes.BOOLEAN
   })
 
   WishList.associate = function (models) {
