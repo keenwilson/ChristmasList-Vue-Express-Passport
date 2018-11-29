@@ -1,4 +1,5 @@
 import Api from '@/services/Api'
+import axios from 'axios'
 
 export default {
   // WishListService makes a get request to '/wishlists' endpoint
@@ -13,5 +14,8 @@ export default {
   },
   put (wishlist) {
     return Api().put(`wishlists/${wishlist.id}`, wishlist)
+  },
+  query (value) {
+    return axios.post(`http://localhost:8081/api/walmart/${value}`)
   }
 }
