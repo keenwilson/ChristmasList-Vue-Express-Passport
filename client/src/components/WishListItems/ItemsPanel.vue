@@ -22,8 +22,8 @@
             </v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn 
-                flat 
+              <v-btn
+                flat
                 dark
                 class="primary"
                 v-if="isUserLoggedIn"
@@ -41,14 +41,14 @@
 <script>
 import WalmartApiService from '@/services/WalmartApiService'
 import WishListsService from '@/services/WishListsService'
-import BookmarksService from '@/services/BookmarksService'
+import SavedItemsService from '@/services/SavedItemsService'
 import {mapState} from 'vuex'
 
 export default {
   data () {
     return {
       wishlists: null,
-      bookmark: null,
+      savedItem: null,
       item: null,
       query: '',
       data: []
@@ -82,31 +82,19 @@ export default {
         price: this.wishlists[index].salePrice,
         itemId: this.wishlists[index].itemId,
         shortDescription: this.wishlists[index].shortDescription,
-        isBookmarked: true,
+        isSaved: true,
         userId: user.id
       }
       WishListsService.post(item).then(function (res) {
-        // Set bookmark after the user save the item to database
+        // Set Christmas List savedItem after the user save the item to database
         console.log('response from WishList POST res.data', res.data)
         const newWishlistID = res.data.id
-        BookmarksService.post({
+        SavedItemsService.post({
           wishlistId: newWishlistID
         }).then(function (res) {
-          console.log('POST to Bookmark res.data:', res.data)
+          console.log('POST to savedItem res.data:', res.data)
         })
-        
       })
-    },
-    async unsetAsBookmark (wishlist) {
-      try {
-        await BookmarksService.delete(this.bookmark.id)
-        this.bookmark = null
-        this.$router.push({
-          name: 'wishlists'
-        })
-      } catch (err) {
-        console.log(err)
-      }
     }
   }
 }

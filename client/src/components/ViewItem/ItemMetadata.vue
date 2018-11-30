@@ -23,17 +23,17 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              v-if="isUserLoggedIn && !bookmark"
+              v-if="isUserLoggedIn && !savedItem"
               dark
               class="primary"
-              @click="setAsBookmark">
+              @click="setAsSavedItem">
               Add to List
             </v-btn>
             <v-btn
-              v-if="isUserLoggedIn && bookmark"
+              v-if="isUserLoggedIn && savedItem"
               dark
               class="primary"
-              @click="unsetAsBookmark">
+              @click="unsetAsSavedItem">
               Remove from List
             </v-btn>
              <v-spacer></v-spacer>
@@ -46,7 +46,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import BookmarksService from '@/services/BookmarksService'
+import SavedItemsService from '@/services/SavedItemsService'
 
 export default {
   props: [
@@ -54,8 +54,8 @@ export default {
   ],
   data () {
     return {
-      // Set bookmark key to keep track of bookmark return from the back end
-      bookmark: null
+      // Set savedItem key to keep track of savedItem return from the back end
+      savedItem: null
     }
   },
   computed: {
@@ -71,13 +71,13 @@ export default {
       }
 
       try {
-        console.log('check bookmark for wishlist.id', this.wishlist.id)
-        const bookmarks = (await BookmarksService.index({
+        console.log('check savedItem for wishlist.id', this.wishlist.id)
+        const savedItems = (await SavedItemsService.index({
           wishlistId: this.wishlist.id
         })).data
-        if (bookmarks.length) {
-          this.bookmark = bookmarks[0]
-          console.log('this.bookmark', this.bookmark)
+        if (savedItems.length) {
+          this.savedItem = savedItems[0]
+          console.log('this.savedItem', this.savedItem)
         }
       } catch (err) {
         console.log(err)
@@ -85,11 +85,11 @@ export default {
     }
   },
   methods: {
-    async setAsBookmark () {
-      console.log(`create bookmark userId:${this.$store.state.user.id} and itemId: ${this.wishlist.id}`)
+    async setAsSavedItem () {
+      console.log(`create savedItem userId:${this.$store.state.user.id} and itemId: ${this.wishlist.id}`)
       try {
-        // Set this.bookmark to whatever the back end returns
-        this.bookmark = (await BookmarksService.post({
+        // Set this.savedItems to whatever the back end returns
+        this.savedItems = (await SavedItemsService.post({
           wishlistId: this.wishlist.id
         })).data
         this.$router.push({
@@ -99,10 +99,10 @@ export default {
         console.log(err)
       }
     },
-    async unsetAsBookmark () {
+    async unsetAsSavedItem () {
       try {
-        await BookmarksService.delete(this.bookmark.id)
-        this.bookmark = null
+        await SavedItemsService.delete(this.savedItem.id)
+        this.savedItem = null
         this.$router.push({
           name: 'wishlists'
         })

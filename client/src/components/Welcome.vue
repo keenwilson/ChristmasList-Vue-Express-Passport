@@ -44,7 +44,7 @@
         <div class="text-xs-center">
           <h2 class="headline font-Montserrat-semi-bold">Tell the world what you want for Christmas</h2>
           <span class="subheading">
-            Tell the world what you want for Christmas
+            As the gift-giving time of the year is approaching, we would like to help people give and get the gifts that matter most.
           </span>
         </div>
       </v-flex>
@@ -60,9 +60,7 @@
                   <div class="headline text-xs-center font-Montserrat-semi-bold">Create a List</div>
                 </v-card-title>
                 <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                  Search products or services you wish to receive for Christmas from an extensive product catalog, then add or remove items to your list with our easy-to-use interface.
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -72,12 +70,10 @@
                   <v-icon x-large class="primary--text text--lighten-2">mdi-message-text-outline</v-icon>
                 </v-card-text>
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline font-Montserrat-semi-bold">Tell a Friend</div>
+                  <div class="headline font-Montserrat-semi-bold">Simple for a Friend</div>
                 </v-card-title>
                 <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                  Gift-givers can look for your list by using your name or email. Once they mark an idea reserved or purchased, everyone else can see that status, avoiding duplicate gifts.
                 </v-card-text>
               </v-card>
             </v-flex>

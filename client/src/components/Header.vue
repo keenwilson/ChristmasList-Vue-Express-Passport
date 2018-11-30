@@ -14,12 +14,12 @@
     <v-toolbar-items>
       <v-btn
         flat
-        dark
         class="font-Montserrat-semi-bold"
+        v-if="$store.state.isUserLoggedIn"
         :to="{
           name: 'wishlists'
         }">
-        Browse
+        Explore
       </v-btn>
     </v-toolbar-items>
 
