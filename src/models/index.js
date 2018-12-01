@@ -4,12 +4,16 @@ const Sequelize = require('sequelize')
 const config = require('../config/config')
 const db = {}
 
-const sequelize = new Sequelize(
-  config.db.database,
-  config.db.user,
-  config.db.password,
-  config.db.options
-)
+if (cprocess.env.JAWSDB_URL) {
+  const sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  const sequelize = new Sequelize(
+    config.db.database,
+    config.db.user,
+    config.db.password,
+    config.db.options
+  )
+}
 
 sequelize.authenticate().then(function () {
   console.log('Database connected and authenticated!')
