@@ -5,8 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import WishLists from '@/components/WishListItems/Index'
 import ViewItem from '@/components/ViewItem/Index'
-import CreateWishList from '@/components/CreateWishList'
-import EditProfile from '@/components/EditProfile'
+import UserList from '@/components/UserList'
 
 Vue.use(Router)
 
@@ -33,19 +32,19 @@ export default new Router({
       component: WishLists
     },
     {
-      path: '/wishlists/create',
-      name: 'wishlists-create',
-      component: CreateWishList
-    },
-    {
       path: '/wishlists/:wishlistId',
       name: 'wishlist',
       component: ViewItem
     },
     {
-      path: '/profile/edit',
-      name: 'profile',
-      component: EditProfile
+      path: '/user/:user',
+      name: 'user',
+      component: UserList
+    },
+    {
+      path: '/users',
+      name: 'users',
+      component: Users
     },
     {
       path: '*',
