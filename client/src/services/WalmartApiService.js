@@ -7,7 +7,7 @@ export default {
     if (value === undefined) {
       return false
     } else {
-      return axios.post(`http://localhost:8081/api/walmart/${value}`)
+      return axios.post(`/api/walmart/${value}`)
     }
   }
 }
