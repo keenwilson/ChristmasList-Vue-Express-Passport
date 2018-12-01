@@ -11,7 +11,7 @@
         <items-panel class="mt-2" />
       </v-flex>
       <v-flex xs4 class="ml-2" v-if="isUserLoggedIn">
-        <images />
+        <saved-items-panel class="mb-2" />
          <v-img
             :src="image"
             aspect-ratio="1"
@@ -30,13 +30,15 @@ import ItemsPanel from './ItemsPanel'
 import ItemsSaved from './ItemsSaved'
 import ItemsSearchPanel from './ItemsSearchPanel'
 import WishListsService from '@/services/WishListsService'
+import SavedItemsPanel from './SavedItemsPanel'
 import {mapState} from 'vuex'
 
 export default {
   components: {
     ItemsPanel,
     ItemsSaved,
-    ItemsSearchPanel
+    ItemsSearchPanel,
+    SavedItemsPanel
   },
   computed: {
     ...mapState([

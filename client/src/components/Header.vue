@@ -65,9 +65,10 @@ export default {
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
-      // Redirect to homepage
+      this.$store.dispatch('setSavedItems', [])
+      this.$store.commit('reset')
       this.$router.push({
-        name: 'wishlists'
+        name: 'root'
       })
     }
   }
