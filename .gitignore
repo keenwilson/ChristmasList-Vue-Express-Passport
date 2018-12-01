@@ -1,15 +1,2 @@
-client/node_modules
-server/node_modules
-
 .env
-
-server/.env
-*/.env
-*.env
-/server/.env
-
-.DS_Store
-node_modules/
-*.orig
-.idea/
-.vscode/
+/node_modules

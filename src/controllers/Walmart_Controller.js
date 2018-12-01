@@ -15,8 +15,8 @@ module.exports = {
         var item = {
           itemId: response.data.items.itemId,
           itemName: response.data.items.name,
-          imageUrl: `<img src="${response.data.items.mediumImage}"/>`,
-          productUrl: `<a href="${response.data.items.productUrl}">Product Page</a>`,
+          imageUrl: response.data.items.mediumImage,
+          productUrl: response.data.items.productUrl,
           price: response.data.items.salePrice,
           description: response.data.items.shortDescription
         }
