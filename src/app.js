@@ -16,9 +16,9 @@ require('./passport')
 require('./routes')(app)
 
 sequelize
-  .query('SET FOREIGN_KEY_CHECKS = 0', {raw: true})
-  .then(function(results) {
-      sequelize.sync({force: true});
+  .query('SET FOREIGN_KEY_CHECKS = 0', { raw: true })
+  .then(function (results) {
+    sequelize.sync({ force: true })
   })
   .then(() => {
     app.listen(config.port)
