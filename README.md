@@ -24,6 +24,9 @@ e.
 ---
 ## The Motivation for Development
 As the gift-giving time of the year is approaching, we would like to help people give and get the gifts that matter most.
+* **For those who love gift-giving**: Keep yourself and family happy with a home filled with thoughtful gifts
+* **For consumer**: Prevent impulse buys and overspending when there are big sales everywhere
+* **For the Holiday Spirit**: Take agains buying for the sake of buying
 
 ---
 ## Technologies used
@@ -41,15 +44,15 @@ As the gift-giving time of the year is approaching, we would like to help people
 #### Back End
 | Back End Dependencies  | Description |
 | ------------- | ------------- |
-| `Express.js`  | Content Cell  |
-| `mysql2` | Content Cell  |
-| `sequelize`  | Content Cell  |
+| `Express.js`  | A web framework for Node.js providing robust routing and HTTP helpers (redirection, caching, etc)  |
+| `mysql2` |  A MySQL library serving the extremely common use-case of connecting, querying and iterating on results |
+| `sequelize`  | A promise-based Node.js ORM for Postgres, MySQL, SQLite and Microsoft SQL Server |
 | `body-parser` | All middlewares will populate the req.body property with the parsed body.  |
 | `cors`  | CORS is a node.js package for providing a `Connect/Express` middleware that can be used to enable CORS with various options.  |
 | `passport` | Passport is Express-compatible authentication middleware for Node.js. |
 | `passport-jwt` | A Passport strategy for authenticating with a JSON Web Token. This module lets you authenticate endpoints using a JSON web token. It is intended to be used to secure RESTful endpoints without sessions.  |
 | `bcrypt-nodejs` | Native JS implementation of BCrypt for Node. We use this code to hash password.  |
-| `jsonwebtoken` | An implementation of JSON Web Tokens.  |
+| `jsonwebtoken` | An implementation of JSON Web Tokens |
 | `joi` | Object schema description language and validator for JavaScript objects. |
 | `morgan` | HTTP request logger middleware for node.js |
 
