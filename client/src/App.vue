@@ -35,6 +35,7 @@ export default {
   text-align: center;
   color: #434434;
   margin-top: 60px;
+  height: 100%
 }
 
 .font-Montserrat-regular {

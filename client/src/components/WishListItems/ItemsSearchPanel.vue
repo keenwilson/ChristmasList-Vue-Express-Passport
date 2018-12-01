@@ -1,10 +1,10 @@
 <template>
-  <panel title="Search">
-    <v-text-field
-      label="Search product names"
-      v-model="search"
-    ></v-text-field>
-  </panel>
+    <panel title="Search">
+      <v-text-field
+        label="Search product names"
+        v-model="search"
+      ></v-text-field>
+    </panel>
 </template>
 
 <script>
