@@ -38,8 +38,8 @@ export default new Vuex.Store({
     addSavedItem (state, savedItem) {
       state.savedItems.push(savedItem)
     },
-    removeSavedItem (state, savedItem) {
-      state.savedItems.splice(state.savedItems.indexOf(savedItem), 1)
+    removeSavedItem (state, itemToRemove) {
+      state.savedItems.splice(state.savedItems.indexOf(itemToRemove), 1)
     },
     reset (state) {
       // acquire initial state
@@ -63,8 +63,8 @@ export default new Vuex.Store({
     addSavedItem ({commit}, savedItem) {
       commit('addSavedItem', savedItem)
     },
-    removeSavedItem ({commit}, savedItem) {
-      commit('removeSavedItem', savedItem)
+    removeSavedItem ({commit}, itemToRemove) {
+      commit('removeSavedItem', itemToRemove)
     },
     clearAll ({commit}) {
       commit('reset')

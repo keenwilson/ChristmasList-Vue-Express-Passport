@@ -1,5 +1,5 @@
 <template>
-  <panel title="Items Avaiable to Add to Wish List">
+  <panel title="Items Avaiable to Add to Christmas List">
     <div class="product" v-for="(wishlist, index) in wishlists" :key="index">
       <v-card flat>
         <v-layout>
