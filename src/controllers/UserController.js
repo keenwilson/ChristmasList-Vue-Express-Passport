@@ -1,5 +1,8 @@
-const { WishList } = require('../models')
-const { User } = require('../models')
+const { WishList,
+        SavedItem,
+        User
+      } = require('../models')
+      const _ = require('lodash')
 
 module.exports = {
   // Find all wish lists in the database
@@ -19,6 +22,46 @@ module.exports = {
     } catch (err) {
       res.status(500).send({
         error: 'An error has occured trying to fetch the wish lists'
+      })
+    }
+  },
+  async index (req, res) {
+    try {
+      const usersList = await User.findAll({attributes: ['userName', 'id']})
+      res.send(usersList)
+    } catch (err) {
+      res.status(500).send({
+        error: `No users found...`
+      })
+    }
+  },
+  async usersSavedItems (req, res) {
+    try {
+      const userId = req.params.user
+      const { wishlistId } = req.query
+      const where = {
+        UserId: userId
+      }
+      if (wishlistId) {
+        where.WishListId = wishlistId
+      }
+      const savedItems = await SavedItem.findAll({
+        where: where,
+        include: [
+          {
+            model: WishList
+          }
+        ]
+      })
+        .map(savedItem => savedItem.toJSON())
+        .map(savedItem => _.extend(
+          {},
+          savedItem.WishList,
+          savedItem))
+      res.send(savedItems)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error has occured trying to fetch the savedItem for a particular item'
       })
     }
   }

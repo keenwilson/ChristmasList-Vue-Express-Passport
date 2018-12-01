@@ -31,7 +31,9 @@ module.exports = (app) => {
     WalmartController.update)
 
   app.get('/user/:user',
-    UserController.userWishList)
+    UserController.usersSavedItems)
+  app.get('/users',
+    UserController.index)
 
   app.get('/saveditems',
     // To view these saved items, the user has to be logged in, has a jwt token that needs to be valid, and be connected to the property userId
