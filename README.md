@@ -1,36 +1,41 @@
 # Christmas List
 
-#### A Vue.js / Express.js web application for creating a Christmas list by searching items they wish to get from `Walmart API` and save those items to their personal list.
-
+#### A `Vue.js` / `Express.js` web application for creating a Christmas list by searching items they wish to get from `Walmart API` and save those items to a list on `MySQL` Database. This app also have `User Authentication` for registration and login powered by `Passport` and `JSON Web Tokens (JWTs)`
 ---
-## Product features
-
-* **Christmas List** is a single page application that allows the user to create a list of gifts they wish to receive.
-
-* The user can register their `username`, `email address`, and `password` following these validation rules:
-* `Username` must be at least 3 characters in length and not greater than 30 characters in length.
-* `Username` must contain only letters and numbers. No special characters.
-* `Password` must contain ONLY the following characters: lower case, upper case, numerics.
-* `Password` must be at least 8 characters in length and not greater than 32 characters in length.
-
-* If the account is created, the user can log in to their Christmas list. Once logged in, the app will automati
-cally syncs its `store` data with `localStorage` so it will remember the user even when the user refresh the pag
-e.
-
-* The user can seach for items they want to include in their list using the search panel. 
-
-* The user can add or remove the item from their Christmas list.
-
+A working version of the application can be found at [https://tbl-christmas-wishlist.herokuapp.com/](https://tbl-christmas-wishlist.herokuapp.com/  "Christmas List")
+---
+A presentation file can be found at [Christmas List by Group 5 Studio on Canva](https://www.canva.com/design/DADKkFeuvAs/iMZtkdK9FR4Ow6Wzv0ntqw/view?utm_content=DADKkFeuvAs&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 ---
 ## The Motivation for Development
+
 As the gift-giving time of the year is approaching, we would like to help people give and get the gifts that matter most.
 * **For those who love gift-giving**: Keep yourself and family happy with a home filled with thoughtful gifts
 * **For consumer**: Prevent impulse buys and overspending when there are big sales everywhere
 * **For the Holiday Spirit**: Take agains buying for the sake of buying
 
 ---
-## Technologies used
-#### Front End
+## Product features
+
+![Homepage](./screenshots/christmaslist-welcomepage.png)
+* **Christmas List** is a single page application that allows the user to create a list of gifts they wish to receive.
+
+![Registration](./screenshots/christmaslist-register-validation.png)
+* The user can register their `username`, `email address`, and `password` following these validation rules:
+* `Username` must be at least 3 characters in length and not greater than 30 characters in length.
+* `Username` must contain only letters and numbers. No special characters.
+* `Password` must contain ONLY the following characters: lower case, upper case, numerics.
+* `Password` must be at least 8 characters in length and not greater than 32 characters in length.
+
+* If the account is created, the user can log in to their Christmas list. Once logged in, the app will automatically syncs its `store` data with `local storage` so it will remember the user even when the user refresh the page.
+
+![Add to List](./screenshots/christmaslist-addtolist.png)
+* The user can seach for items they want to include in their list using the search panel. 
+* The user can add or remove the item from their saved items list.
+
+---
+## Technologies Used
+
+#### Front End / UI
 | Front End Dependencies  | Description |
 | ------------- | ------------- |
 | `Vue.js`  | `Vue` (pronounced /vjuː/, like view) is a progressive framework for building user interfaces.   |
@@ -57,7 +62,7 @@ As the gift-giving time of the year is approaching, we would like to help people
 | `morgan` | HTTP request logger middleware for node.js |
 
 ---
-## Direction for future development
+## Direction for Future Development
 * Allow people to discover a list by name, email, or link
 * Suggest gift ideas based on people who include similar items in their list
 * Add more API endpoints that the user can include products/services from their favorite stores
