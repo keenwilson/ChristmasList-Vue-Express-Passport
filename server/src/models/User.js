@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   User.associate = function (models) {
-    User.hasMany(models.WishList, {})
+    User.hasMany(models.WishList, { onDelete: 'SET NULL', onUpdate: 'CASCADE' })
   }
 
   return User
