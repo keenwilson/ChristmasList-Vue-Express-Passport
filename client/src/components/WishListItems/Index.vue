@@ -17,7 +17,6 @@
             aspect-ratio="1"
             class="mb-2"
         ></v-img>
-        <items-saved />
       </v-flex>
       <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>

@@ -1,18 +1,28 @@
 <template>
   <panel title="Your Saved Items">
     <section class="main" v-show="savedItems.length">
-      <ul class="savedItems-list">
-        <li
-          v-for="(savedItem, index) in savedItems"
-          :key="index">
-          <span> Found and item {{ savedItem.UserId }} {{ savedItem.WishListId }}</span>
-          <v-icon
-            class="unSaved"
-            @click="unsetAsSavedItems(index)">
-              mdi-close-circle-outline
-          </v-icon>
-        </li>
-      </ul>
+           <v-list two-line
+             v-for="(savedItem, index) in savedItems"
+             :key="index">
+             <v-list-tile>
+              <v-list-tile-avatar>
+                <img :src="savedItem.imageUrl">
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title v-html="savedItem.itemName"></v-list-tile-title>
+                <v-list-tile-sub-title>${{savedItem.price}}</v-list-tile-sub-title>
+              </v-list-tile-content>
+              <v-list-tile-action>
+                <v-btn icon>
+                  <v-icon
+                    @click="unsetAsSavedItems(index)">
+                    mdi-close-circle-outline
+                  </v-icon>
+                </v-btn>
+            </v-list-tile-action>
+            </v-list-tile>
+        </v-list>
     </section>
   </panel>
 </template>
@@ -28,13 +38,14 @@ export default {
   },
   methods: {
     async unsetAsSavedItems (index) {
-      const savedItems = this.$store.state.savedItems
-      const itemToRemove = savedItems[index]
+      const self = this
+      const itemToRemove = this.savedItems[index]
       console.log('unset as savedItem this itemToRemove:', itemToRemove)
       try {
         await SavedItemsService.delete(itemToRemove.id).then(function (res) {
           console.log('DELETE savedItem res.data:', res.data)
         })
+        self.$store.dispatch('removeSavedItem', itemToRemove)
         this.itemToRemove = null
         this.$router.push({
           name: 'wishlists'
