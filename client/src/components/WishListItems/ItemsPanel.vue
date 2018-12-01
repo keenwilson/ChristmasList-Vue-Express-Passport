@@ -26,7 +26,7 @@
                 flat
                 dark
                 class="primary"
-                v-if="isUserLoggedIn"
+                v-if="$store.state.isUserLoggedIn"
                 @click="sendToDB(index)">Add to List</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
@@ -42,7 +42,6 @@
 import WalmartApiService from '@/services/WalmartApiService'
 import WishListsService from '@/services/WishListsService'
 import SavedItemsService from '@/services/SavedItemsService'
-import {mapState} from 'vuex'
 
 export default {
   data () {
@@ -53,12 +52,6 @@ export default {
       query: '',
       data: []
     }
-  },
-  computed: {
-    ...mapState([
-      'isUserLoggedIn',
-      'user'
-    ])
   },
   watch: {
     '$route.query.search': {
@@ -71,7 +64,8 @@ export default {
   },
   methods: {
     sendToDB (index) {
-      if (!this.isUserLoggedIn) {
+      const self = this
+      if (!this.$store.state.isUserLoggedIn) {
         return
       }
       const user = this.$store.state.user
@@ -85,14 +79,28 @@ export default {
         isSaved: true,
         userId: user.id
       }
-      WishListsService.post(item).then(function (res) {
-        // Set Christmas List savedItem after the user save the item to database
+      WishListsService.post(item).then((res) => {
+        // Set savedItem after the user save the item to database
         console.log('response from WishList POST res.data', res.data)
         const newWishlistID = res.data.id
         SavedItemsService.post({
           wishlistId: newWishlistID
-        }).then(function (res) {
+        }).then((res) => {
           console.log('POST to savedItem res.data:', res.data)
+          // Add the item to store
+          setTimeout(function () {
+            try {
+              const itemToSaveToStore = res.data
+              console.log('Try to add new savedItem for wishlist.id', itemToSaveToStore.WishListId)
+              console.log('Check item data', item)
+              // Merging objects with same properties
+              const newSavedItem = Object.assign({}, itemToSaveToStore, item)
+              console.log('merge newSavedItem for pushing to store', newSavedItem)
+              self.$store.dispatch('addSavedItem', newSavedItem)
+            } catch (err) {
+              console.log(err)
+            }
+          }, 500)
         })
       })
     }

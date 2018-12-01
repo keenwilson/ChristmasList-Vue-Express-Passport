@@ -26,7 +26,6 @@ export default {
         }
       }
       this.$router.push(route)
-      this.search = ''
     }, 500),
     '$route.query.search': {
       immediate: true,

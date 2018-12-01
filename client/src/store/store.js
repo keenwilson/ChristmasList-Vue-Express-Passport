@@ -5,6 +5,15 @@ import createPersistedState from 'vuex-persistedstate'
 // Tell Vue to user Vuex
 Vue.use(Vuex)
 
+function initialState () {
+  return {
+    token: null,
+    user: null,
+    isUserLoggedIn: false,
+    savedItems: []
+  }
+}
+
 // Create Vuex.Store using a strict mode
 export default new Vuex.Store({
   strict: true,
@@ -13,11 +22,7 @@ export default new Vuex.Store({
     createPersistedState()
   ],
   // Create state variables that we're going to use entire our application
-  state: {
-    token: null,
-    user: null,
-    isUserLoggedIn: false
-  },
+  state: initialState,
   // Create mutations to change state variables
   mutations: {
     setToken (state, token) {
@@ -26,6 +31,22 @@ export default new Vuex.Store({
     },
     setUser (state, user) {
       state.user = user
+    },
+    setSavedItems (state, savedItems) {
+      state.savedItems = savedItems
+    },
+    addSavedItem (state, savedItem) {
+      state.savedItems.push(savedItem)
+    },
+    removeSavedItem (state, savedItem) {
+      state.savedItems.splice(state.savedItems.indexOf(savedItem), 1)
+    },
+    reset (state) {
+      // acquire initial state
+      const s = initialState()
+      Object.keys(s).forEach(key => {
+        state[key] = s[key]
+      })
     }
   },
   // Create actions to change state variables
@@ -35,6 +56,18 @@ export default new Vuex.Store({
     },
     setUser ({commit}, user) {
       commit('setUser', user)
+    },
+    setSavedItems ({commit}, savedItems) {
+      commit('setSavedItems', savedItems)
+    },
+    addSavedItem ({commit}, savedItem) {
+      commit('addSavedItem', savedItem)
+    },
+    removeSavedItem ({commit}, savedItem) {
+      commit('removeSavedItem', savedItem)
+    },
+    clearAll ({commit}) {
+      commit('reset')
     }
   }
 })
