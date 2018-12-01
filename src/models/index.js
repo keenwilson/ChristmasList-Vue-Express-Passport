@@ -1,15 +1,21 @@
 const fs = require('fs')
 const path = require('path')
+var basename = path.basename(module.filename)
 const Sequelize = require('sequelize')
-const config = require('../config/config')
-const db = {}
+var env = process.env.NODE_ENV || 'development'
+var config = require(__dirname + '/../config/config.json')[env]
+var db = {}
 
-const sequelize = new Sequelize(
-  config.db.database,
-  config.db.user,
-  config.db.password,
-  config.db.options
-)
+if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable])
+} else {
+  var sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  )
+}
 
 sequelize.authenticate().then(function () {
   console.log('Database connected and authenticated!')
@@ -19,15 +25,14 @@ sequelize.authenticate().then(function () {
   return false
 })
 
-fs
-  .readdirSync(__dirname)
-  .filter((file) => {
-    return (file.indexOf('.') !== 0) && (file !== 'index.js') && (file.slice(-3) === '.js')
-  /* file !== 'index.js' */
+fs.readdirSync(__dirname)
+  .filter(function (file) {
+    return (
+      file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
+    )
   })
-  .forEach((file) => {
-    const model = sequelize.import(path.join(__dirname, file))
-    console.log(model.name)
+  .forEach(function (file) {
+    var model = sequelize.import(path.join(__dirname, file))
     db[model.name] = model
   })
 

@@ -18,7 +18,7 @@ require('./routes')(app)
 sequelize
   .query('SET FOREIGN_KEY_CHECKS = 0', { raw: true })
   .then(function (results) {
-    sequelize.sync({ force: true })
+    sequelize.sync({ force: false })
   })
   .then(() => {
     app.listen(config.port)
