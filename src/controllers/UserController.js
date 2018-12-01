@@ -56,8 +56,7 @@ module.exports = {
         .map(savedItem => savedItem.toJSON())
         .map(savedItem => _.extend(
           {},
-          savedItem.WishList,
-          savedItem))
+          savedItem.WishList))
       res.send(savedItems)
     } catch (err) {
       res.status(500).send({
