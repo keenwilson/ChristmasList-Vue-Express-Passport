@@ -15,7 +15,11 @@ app.use(express.static('../client/dist'))
 require('./passport')
 require('./routes')(app)
 
-sequelize.sync({ force: true })
+sequelize
+  .query('SET FOREIGN_KEY_CHECKS = 0', {raw: true})
+  .then(function(results) {
+      sequelize.sync({force: true});
+  })
   .then(() => {
     app.listen(config.port)
     console.log(`Server started on port ${config.port}`)
