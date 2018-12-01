@@ -1,6 +1,6 @@
 <template>
   <div class="parallax">
-    <v-layout class="pa-4" style=" background-color: #303030">
+    <v-layout class="py-4 px-5" style=" background-color: #303030">
       <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>
       <v-flex :class="{

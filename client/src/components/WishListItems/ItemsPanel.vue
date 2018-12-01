@@ -1,5 +1,28 @@
 <template>
   <panel title="Items Avaiable to Add to Christmas List">
+    <v-layout
+      v-show="!wishlists"
+      column
+      align-center
+      justify-center
+      class="white--text">
+        <v-card flat light>
+          <v-img
+            src="static/train.jpg"
+            aspect-ratio="2.75"
+          ></v-img>
+          <v-card-title primary-title>
+            <div>
+              <p class="shadow text1">CHRISTMAS</p>
+              <p class="shadow text3">LIST</p>
+              <p class="script"><span>Start</span></p>
+              <div>Search products you wish to receive for Christmas from an extensive product catalog</div>
+              <p class="script"><span>Then</span></p>
+              <div>Add or remove items to your list with our easy-to-use interface.</div>
+            </div>
+          </v-card-title>
+        </v-card>
+    </v-layout>
     <div class="product" v-for="(wishlist, index) in wishlists" :key="index">
       <v-card flat>
         <v-layout>
@@ -108,7 +131,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .product {
   padding: 20px;
   height: 330px;
@@ -135,5 +158,61 @@ export default {
 .product-description {
   overflow: scroll;
   height: 40px;
+}
+
+.plate {
+  width: 410px;
+  margin: 10% auto;
+}
+.shadow {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
+.script {
+  font-family: "Seaweed Script";
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+  margin:0;
+}
+.script span {
+  background-color: #222;
+  padding: 0 0.3em;
+}
+.script:before {
+  content:"";
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #222;
+}
+.text1 {
+  font-size: 60px;
+}
+.text2 {
+  font-size: 126px;
+}
+.text3 {
+  font-size: 100px;
 }
 </style>
