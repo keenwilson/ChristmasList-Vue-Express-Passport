@@ -3,14 +3,11 @@
     <v-layout class="py-4 px-5" style=" background-color: #303030">
       <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>
-      <v-flex :class="{
-          xs8: !isUserLoggedIn,
-          xs8: isUserLoggedIn
-        }" class="ml-2">
+      <v-flex xs12 md8 class="ml-2">
         <items-search-panel />
         <items-panel class="mt-2" />
       </v-flex>
-      <v-flex xs4 class="ml-2" v-if="isUserLoggedIn">
+      <v-flex xs12 md4 class="ml-2" v-if="isUserLoggedIn">
         <saved-items-panel class="mb-2" />
          <v-img
             :src="image"
