@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 const config = require('../config/config')
 const db = {}
 
-if (cprocess.env.JAWSDB_URL) {
+if (process.env.JAWSDB_URL) {
   const sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   const sequelize = new Sequelize(
