@@ -3,14 +3,14 @@ const {
   sequelize,
   WishList,
   User,
-  Bookmark,
+  SavedItem,
   History
 } = require('../src/models')
 
 const Promise = require('bluebird')
 const wishlists = require('./wishlists.json')
 const users = require('./users.json')
-const bookmarks = require('./bookmarks.json')
+const savedItems = require('./saveditems.json')
 const histories = require('./histories.json')
 
 sequelize.sync({force: true})
@@ -28,8 +28,8 @@ sequelize.sync({force: true})
     )
 
     await Promise.all(
-      bookmarks.map(bookmark => {
-        Bookmark.create(bookmark)
+      savedItems.map(savedItem => {
+        SavedItem.create(savedItem)
       })
     )
 

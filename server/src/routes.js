@@ -4,7 +4,7 @@ const AuthenticationControllerPolicy = require('./policies/AuthenticationControl
 const WishListsController = require('./controllers/WishListsController')
 const WalmartController = require('./controllers/Walmart_Controller')
 const UserController = require('./controllers/UserController')
-const BookmarksController = require('./controllers/BookmarksController')
+const SavedItemsController = require('./controllers/SavedItemsController')
 const HistoriesController = require('./controllers/HistoriesController')
 const isAuthenticated = require('./policies/isAuthenticated')
 
@@ -33,16 +33,16 @@ module.exports = (app) => {
   app.get('/user/:user',
     UserController.userWishList)
 
-  app.get('/bookmarks',
-    // To view these bookmarks, the user has to be logged in, has a jwt token that needs to be valid, and be connected to the property userId
+  app.get('/saveditems',
+    // To view these saved items, the user has to be logged in, has a jwt token that needs to be valid, and be connected to the property userId
     isAuthenticated,
-    BookmarksController.index)
-  app.post('/bookmarks',
+    SavedItemsController.index)
+  app.post('/saveditems',
     isAuthenticated,
-    BookmarksController.post)
-  app.delete('/bookmarks/:bookmarkId',
+    SavedItemsController.post)
+  app.delete('/saveditems/:savedItemId',
     isAuthenticated,
-    BookmarksController.delete)
+    SavedItemsController.delete)
 
   app.get('/histories',
     isAuthenticated,

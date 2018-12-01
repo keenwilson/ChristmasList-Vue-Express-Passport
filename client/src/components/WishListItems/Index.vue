@@ -11,12 +11,13 @@
         <items-panel class="mt-2" />
       </v-flex>
       <v-flex xs4 class="ml-2" v-if="isUserLoggedIn">
+        <images />
          <v-img
             :src="image"
             aspect-ratio="1"
             class="mb-2"
         ></v-img>
-        <items-bookmarks />
+        <items-saved />
       </v-flex>
       <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>
@@ -26,7 +27,7 @@
 
 <script>
 import ItemsPanel from './ItemsPanel'
-import ItemsBookmarks from './ItemsBookmarks'
+import ItemsSaved from './ItemsSaved'
 import ItemsSearchPanel from './ItemsSearchPanel'
 import WishListsService from '@/services/WishListsService'
 import {mapState} from 'vuex'
@@ -34,7 +35,7 @@ import {mapState} from 'vuex'
 export default {
   components: {
     ItemsPanel,
-    ItemsBookmarks,
+    ItemsSaved,
     ItemsSearchPanel
   },
   computed: {

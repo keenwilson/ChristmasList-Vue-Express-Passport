@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.STRING,
     itemId: DataTypes.STRING,
     shortDescription: DataTypes.TEXT,
-    isBookmarked: DataTypes.BOOLEAN
+    isSaved: DataTypes.BOOLEAN
   })
 
   WishList.associate = function (models) {

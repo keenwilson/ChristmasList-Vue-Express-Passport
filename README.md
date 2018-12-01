@@ -1,6 +1,6 @@
 # Christmas List
 
-#### A Vue.js / Express.js web application for creating a Christmas list by searching items they wish to get from `Walmart API` and bookmark those items to their personal list.
+#### A Vue.js / Express.js web application for creating a Christmas list by searching items they wish to get from `Walmart API` and save those items to their personal list.
 
 ---
 ## Product features
@@ -59,6 +59,7 @@ As the gift-giving time of the year is approaching, we would like to help people
 * Suggest gift ideas based on people who include similar items in their list
 * Add more API endpoints that the user can include products/services from their favorite stores
 * _GIMMICK_: Counting down how many days to Christmas
+* Once a viewer marks an idea reserved or purchased, everyone else (except the list maker) can see that status, avoiding duplicate gifts.
 
 ---
 ## Authors
