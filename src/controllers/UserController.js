@@ -35,6 +35,23 @@ module.exports = {
       })
     }
   },
+  async getUser (req, res) {
+    try {
+      const userId = req.params.id
+      console.log(`\n ${userId} \n`)
+      const user = await User.findOne({
+        where: {
+          id: userId
+        },
+        attributes: ['userName', 'id']
+      })
+      res.send(user)
+    } catch (err) {
+      res.status(500).send({
+        error: `User not found.`
+      })
+    }
+  },
   async usersSavedItems (req, res) {
     try {
       const userId = req.params.user

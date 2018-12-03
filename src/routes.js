@@ -34,6 +34,8 @@ module.exports = (app) => {
     UserController.usersSavedItems)
   app.get('/users',
     UserController.index)
+  app.get('/getUser/:id',
+    UserController.getUser)
 
   app.get('/saveditems',
     // To view these saved items, the user has to be logged in, has a jwt token that needs to be valid, and be connected to the property userId

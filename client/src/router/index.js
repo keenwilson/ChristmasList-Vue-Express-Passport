@@ -6,10 +6,12 @@ import Login from '@/components/Login'
 import WishLists from '@/components/WishListItems/Index'
 import ViewItem from '@/components/ViewItem/Index'
 import UserList from '@/components/UserList'
+import Users from '@/components/Users'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

@@ -4,17 +4,19 @@ var basename = path.basename(module.filename)
 const Sequelize = require('sequelize')
 var env = process.env.NODE_ENV || 'development'
 var config = require(__dirname + '/../config/config.json')[env]
+var configLocal = require("../config/config")
 var db = {}
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable])
 } else {
   var sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
+    configLocal.db.database,
+    configLocal.db.user,
+    configLocal.db.password,
+    configLocal.db.options
   )
+  
 }
 
 sequelize.authenticate().then(function () {

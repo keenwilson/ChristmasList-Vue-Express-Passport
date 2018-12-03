@@ -6,6 +6,9 @@ export default {
     return Api().get('users')
   },
   usersSavedItems (user) {
-    return Api().get(`user/${user.id}`)
+    return Api().get(`user/${user}`)
+  },
+  getUser (user) {
+    return Api().get(`getUser/${user}`)
   }
 }
