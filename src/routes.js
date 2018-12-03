@@ -30,11 +30,11 @@ module.exports = (app) => {
   app.post('/api/walmart/:id',
     WalmartController.update)
 
-  app.get('/api/user/:user',
+  app.get('/user/:user',
     UserController.usersSavedItems)
-  app.get('/api/users',
+  app.get('/users',
     UserController.index)
-  app.get('/api/getUser/:id',
+  app.get('/getUser/:id',
     UserController.getUser)
 
   app.get('/saveditems',
