@@ -1,10 +1,10 @@
 <template>
   <div class="parallax">
-    <v-layout class="py-4 px-5" style=" background-color: #303030">
+    <v-layout >
        <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>
       </v-layout>
-   <v-container fluid>
+   <v-container fluid class="py-4 px-5" style=" background-color: #303030">
       <v-layout row wrap>  
 
           <v-flex xs12 sm12 md6 lg6 order-xs2 order-md1 >
@@ -28,7 +28,8 @@
   </v-container>
   </div>
 </template>
-       
+
+
 
 <script>
 import ItemsPanel from "./ItemsPanel";
