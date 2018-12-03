@@ -1,24 +1,27 @@
 <template>
-  <div class="parallax">
-    <v-layout class="py-4 px-5" style=" background-color: #303030">
+    <v-layout justify-space-around wrap class="py-4 px-5" style=" background-color: #303030">
       <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>
-      <v-flex xs12 md8 class="ml-2">
-        <items-search-panel />
-        <items-panel class="mt-2" />
+      <v-flex
+        xs12 md8
+        order-md1 order-xs2>
+        <items-search-panel class="mx-2 my-2"/>
+        <items-panel class="mx-2 my-2" />
       </v-flex>
-      <v-flex xs12 md4 class="ml-2" v-if="isUserLoggedIn">
-        <saved-items-panel class="mb-2" />
+      <v-flex
+        xs12 md4
+        order-md2 order-xs1
+        v-if="isUserLoggedIn">
+        <saved-items-panel class="mx-2 my-2" />
          <v-img
             :src="image"
             aspect-ratio="1"
-            class="mb-2"
+            class="mx-2 my-2"
         ></v-img>
       </v-flex>
       <v-spacer
         v-if="!$store.state.isUserLoggedIn"></v-spacer>
     </v-layout>
-  </div>
 </template>
 
 <script>
