@@ -10,7 +10,9 @@
         Christmas List
       </router-link>
     </v-toolbar-title>
+  
 
+    
     <v-toolbar-items>
       <v-btn
         flat
@@ -22,6 +24,7 @@
         Explore
       </v-btn>
     </v-toolbar-items>
+  
 
     <v-spacer></v-spacer>
 

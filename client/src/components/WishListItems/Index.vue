@@ -8,18 +8,18 @@
       <v-layout row wrap>  
 
           <v-flex xs12 sm12 md6 lg6 order-xs2 order-md1 >
-            <items-search-panel class = " ml-4 mt-4" />
-            <items-panel class = "mt-4 ml-4 mb-3" />
+            <items-search-panel class = " ml-4 mr-4 mt-4" />
+            <items-panel class = "mt-4 ml-4 mr-4 mb-3" />
             </v-flex>
             
 
             <v-flex xs12 sm12 md6 lg6 order-xs1 order-md2 >
-           <saved-items-panel class = "ml-4 mt-4 mb-4" />
+           <saved-items-panel class = "ml-4 mt-4 mr-4 mb-2" />
         
            <v-img xs12 sm12 md4 lg4 order-xs2 order-md3
             :src="image"
             aspect-ratio="2.5"
-            class="mb-2 ml-4"
+            class="mb-2 mr-4 ml-4"
         ></v-img>
       </v-flex>
             
