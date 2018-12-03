@@ -1,31 +1,23 @@
 <template>
-  <div>
-    <div class="parallax">
-      <v-layout class="py-4 px-5" style=" background-color: #303030">
-        <v-flex xs12 class="ml-2">
-        <p class="white--text display-2">Users</p>
-        </v-flex>
-      </v-layout>
-    </div>
-    <div class="users" v-for="(user, index) in usersList" :key="user.id">
-      <v-card flat>
-        <v-layout>
-          <v-flex xs8>
-            <v-card-title primary-title>
-              <div>
-                <router-link :to="'/user/' + user.id"><p class="title">{{ user.userName }}</p></router-link>
-              </div>
-            </v-card-title>
-          </v-flex>
-        </v-layout>
-      </v-card>
-      <v-divider v-if="index + 1 < usersList.length" :key="`divider-${index}`"></v-divider>
-    </div>
-  </div>
+    <v-layout class="py-4 px-5 container-shader" style=" background-color: #303030">
+      <v-flex xs12 md8 offset-md2>
+        <panel title="Users">
+          <div class="users" v-for="(user, index) in usersList" :key="user.id">
+              <v-card flat>
+                <v-card-title primary-title>
+                  <router-link :to="'/user/' + user.id"><p class="title font-Montserrat-semi-bold username">{{ user.userName }}</p></router-link>
+                </v-card-title>
+              </v-card>
+              <v-divider v-if="index + 1 < usersList.length" :key="`divider-${index}`"></v-divider>
+          </div>
+        </panel>
+      </v-flex>
+    </v-layout>
 </template>
 
 <script>
 import UsersService from '@/services/UsersService.js'
+import _ from 'lodash'
 
 export default {
   data () {
@@ -36,14 +28,22 @@ export default {
   async mounted () {
     this.usersList = (await UsersService.index()).data
     console.log('List of users.', this.usersList)
-  },
-  computed: {
-    users () {
-      return UsersService.index().data
-    }
   }
 }
 </script>
 
 <style>
+.username {
+  text-decoration: none;
+}
+
+.container-shader {
+  height: 100vh;
+}
+
+@media only screen and (max-width: 480px){
+ .container-shader{
+  height: auto;
+ }
+}
 </style>
