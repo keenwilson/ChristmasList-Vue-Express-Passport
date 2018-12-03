@@ -26,6 +26,15 @@
     <v-spacer></v-spacer>
 
       <v-toolbar-items>
+        <v-btn
+          flat
+          class="font-Montserrat-semi-bold"
+          v-if="$store.state.isUserLoggedIn"
+          :to="{
+            name: 'users'
+          }">
+          Find Friends
+        </v-btn>
       <v-btn
         v-if="!$store.state.isUserLoggedIn"
         flat
