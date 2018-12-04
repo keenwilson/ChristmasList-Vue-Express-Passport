@@ -37,7 +37,7 @@ module.exports = {
   },
   async getUser (req, res) {
     try {
-      const userId = req.params.id
+      const userId = req.params.user
       console.log(`\n ${userId} \n`)
       const user = await User.findOne({
         where: {
