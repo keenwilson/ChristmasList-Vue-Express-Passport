@@ -4,7 +4,7 @@
 ---
 A working version of the application can be found at [https://tbl-christmas-wishlist.herokuapp.com/](https://tbl-christmas-wishlist.herokuapp.com/  "Christmas List")
 
-A presentation file can be found at [Christmas List by Group 5 Studio on Canva](https://www.canva.com/design/DADKkFeuvAs/iMZtkdK9FR4Ow6Wzv0ntqw/view?utm_content=DADKkFeuvAs&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)'
+A presentation file can be found at [Christmas List by Group 5 Studio on Canva](https://www.canva.com/design/DADKkFeuvAs/iMZtkdK9FR4Ow6Wzv0ntqw/view?utm_content=DADKkFeuvAs&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
 ---
 ## The Motivation for Development

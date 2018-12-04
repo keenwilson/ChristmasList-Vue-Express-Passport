@@ -32,9 +32,9 @@
           <v-flex xs8>
             <v-card-title primary-title>
               <div>
-                <h3 class="mb-0 product-name font-Montserrat-semi-bold">{{ wishlist.name }}</h3>
+                <h3 class="mb-0 product-name font-Montserrat-semi-bold">{{ wishlist.name | truncate(70, '...')  }}</h3>
                 <h3 class="mb-0 product-price font-Montserrat-regular">${{ wishlist.salePrice }}</h3>
-                <p class="product-description">{{ wishlist.shortDescription }}</p>
+                <p class="product-description">{{ wishlist.shortDescription | truncate(110, '...') }}</p>
                 <v-btn
                   flat
                   color="primary"
@@ -134,34 +134,30 @@ export default {
 <style scoped>
 .product {
   padding: 20px;
-  height: 330px;
-  overflow: hidden;
+  min-height: 330px;
 }
 
 .product-name {
-  font-size: 22px;
-  max-height: 64px;
-  overflow: scroll;
+  font-size: 20px;
 }
 .product-price {
-  font-size: 22px;
+  font-size: 18px;
   color: #004d40;
 }
 .product-url {
   font-size: 12px;
 }
 .product-image {
-  height: 180px;
+  max-height: 180px;
   margin: 0 auto;
 }
 
 .product-description {
-  overflow: scroll;
-  height: 40px;
+  font-size: 14px;
 }
 
 .plate {
-  width: 410px;
+  max-width: 410px;
   margin: 10% auto;
 }
 .shadow {

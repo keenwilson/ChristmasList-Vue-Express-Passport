@@ -2,7 +2,8 @@
   <v-layout class="py-4 px-5" style=" background-color: #303030">
     <v-flex xs12 md8 offset-md2>
       <panel title="Items in Christmas List">
-        <p class="mt-2">Here is a list of what <strong>{{ user.userName }}</strong> wants for this Christmas. Merry Christmas and Happy Holidays to all.</p>
+        <p class="mt-2">Here is a list of what <strong>{{ user.userName }}</strong> wants for this Christmas.
+        <br>Merry Christmas and Happy Holidays to all.</p>
         <hr>
         <div class="product" v-for="(item, index) in userList" :key="index">
           <v-card flat>
@@ -13,9 +14,9 @@
               <v-flex xs8>
                 <v-card-title primary-title>
                   <div>
-                    <h3 class="mb-0 product-name font-Montserrat-semi-bold">{{ item.itemName }}</h3>
-                    <h3 class="mb-0 product-price font-Montserrat-regular">${{ item.price }}</h3>
-                    <p class="product-description">{{ item.shortDescription }}</p>
+                    <h3 class="mb-0 product-name font-Montserrat-semi-bold">{{ wishlist.name | truncate(70, '...')  }}</h3>
+                    <h3 class="mb-0 product-price font-Montserrat-regular">${{ wishlist.salePrice }}</h3>
+                    <p class="product-description">{{ wishlist.shortDescription | truncate(110, '...') }}</p>
                     <v-btn
                       flat
                       color="primary"
@@ -60,30 +61,26 @@ export default {
 <style>
 .product {
   padding: 20px;
-  height: 330px;
-  overflow: hidden;
+  min-height: 330px;
 }
 
 .product-name {
-  font-size: 22px;
-  max-height: 64px;
-  overflow: scroll;
+  font-size: 20px;
 }
 .product-price {
-  font-size: 22px;
+  font-size: 18px;
   color: #004d40;
 }
 .product-url {
   font-size: 12px;
 }
 .product-image {
-  height: 180px;
+  max-height: 180px;
   margin: 0 auto;
 }
 
 .product-description {
-  overflow: scroll;
-  height: 40px;
+  font-size: 14px;
 }
 
 </style>

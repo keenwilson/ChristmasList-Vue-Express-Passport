@@ -25,6 +25,10 @@ Vue.use(Vuetify, {
 
 Vue.component('panel', Panel)
 
+Vue.filter('truncate', function (text, stop, clamp) {
+  return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
+})
+
 // Tell vuex-router-sync to sync store to router
 sync(store, router)
 
