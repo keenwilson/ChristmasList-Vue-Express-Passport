@@ -17,7 +17,6 @@
 
 <script>
 import UsersService from '@/services/UsersService.js'
-import _ from 'lodash'
 
 export default {
   data () {
