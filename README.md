@@ -74,7 +74,7 @@ As the gift-giving time of the year is approaching, we would like to help people
 **Group 5 Studio Team Members**
 * [Victor Adams](https://kysper.github.io/)
 * [Tim Lukens](https://timlukens.com/)
-* [Micah Walker](https://mjwalker99.github.io/Updated-Portfolio/)
+* [Micah Walker](https://mjwalker99.github.io/MW-Portfolio/)
 * [Keen Wilson](https://keenwilson.com)
 
 _This group project is part of the Full-Stack Web Development program at University of Kansas_
